@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermundane</title>
+  <link rel="stylesheet" href="static/intermundane.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+  <script src="static/intermundane_validate.js"></script>
+  <script src="static/intermundane_json.js"></script>
+  <script src="static/intermundane.js"></script>
+</head>
+<body>
+    <section class="top-section bg-darker">
+        <h1>Intermundane</h1>
+    </section>
+
+    <header class="header bg-darker">
+        <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#lore">Lore</a>
+            <ul class="dropdown">
+                <li><a href="#lore-lab">The Lab</a></li>
+                <li><a href="#lore-desert">The Desert</a></li>
+                <li><a href="#lore-forest">The Forest</a></li>
+            </ul>
+            </li>
+            <li><a href="#characters">Characters</a>
+            <ul id="character-list" class="dropdown">
+                <!-- Character list items are created here via javascript code -->
+            </ul>
+            </li>
+            <li><a href="#author">Author</a></li>
+            <li><a href="#comments">Comments</a></li>
+            <!-- <li><a href="#faq">F.A.Q</a></li> -->
+        </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="about bg-dark">
+        <h1>About Intermundane</h1>
+        <div id="about-info"><p>
+        A laboratory focused on investigating alternate dimentions finally discovers a way to travel between worlds. However, the possible dangers contained inside these worlds are unkown, thus starting a program to start mapping and documenting these without risks...for them.<br>
+        The story follows Irarenai, a test subject brought back form the dead for a singular task: explore and document as much as physically possible and report back to the lab with the information.
+        </p></div>
+    </section>
+
+    <section id="lore" class="lore bg-dark">
+        <h1>Lore significant locations</h1>
+
+        <div class="lore-grid">
+            <div class="lore-card" id="lore-lab">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>The Lab</h2>
+                    <p>The place where everything began and the anchor of the story, while the ethics of some of the experiments running here can be questioned, the technological advancement is undeniable</p>
+                </div>
+            </div>
+            <div class="lore-card" id="lore-desert">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>The Desert</h2>
+                    <p>A world that resembles the Egypt known in our planet, except with capability of reaching much higher temperatures and containing unknown technologies inside the mysterious pyramids</p>
+                </div>
+            </div>
+            <div class="lore-card" id="lore-forest">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>The Forest</h2>
+                    <p>The ever-dark forest is among the most dangerous worlds in the lab's records, not only due to a lack of any natural lighting, but also the dangerous inhabitants of this place</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="characters" class="characters bg-dark">
+        <h1>Characters</h1>
+
+        <button id="showFilterBtn" onclick="showFilter()" class="btn btn-primary">Show Filter</button>
+
+        <form id="filter-form" hidden>
+            <div>
+                <label for="location-list" class="form-label">Location present:</label>
+                <select id="location-list" class="form-select bg-darker">
+                    <option value="Any">Any</option>
+                </select>
+            </div>
+            <div>
+                <label for="species-list" class="form-label">Species:</label>
+                <select id="species-list" class="form-select bg-darker">
+                    <option value="Any">Any</option>
+                </select>
+            </div>
+            <div>
+                <label class="form-label">Creation date:</label>
+                <div class="flex-row">
+                    <input type="text" class="form-control bg-darker" id="dateFrom" name="dateFrom" placeholder="DD/MM/YYYY">
+                    -
+                    <input type="text" class="form-control bg-darker" id="dateTo" name="dateTo" placeholder="DD/MM/YYYY">
+                </div>
+            </div>
+            <div>
+                <button id="submitBtn" type="submit" class="btn btn-primary">Filter characters</button>
+            </div>
+        </form>
+
+        <div id="characters-grid" class="characters-grid">
+            <!-- Character card are created here via javascript code -->
+        </div>
+    </section>
+
+    <section id="author" class="author bg-dark">
+        <h1>Author</h1>
+        <table>
+            <tr>
+                <td rowspan="3" id="img-column"><img id="author-img" src="https://f2.toyhou.se/file/f2-toyhou-se/images/101410691_Rrh3Gp0FoktEawO.png" alt="Vimooneon"></td>
+                <th class="header-font">Vimooneon</th>
+            </tr>
+            <tr>
+                <td><b class="header-font">Artist</b> and <b class="header-font">Programmer</b></td>
+            </tr>
+            <tr>
+                <td>
+                    Here are some music bands I listen to
+                    <ol>
+                        <li>Bring Me The Horizon</li>
+                        <li>Three Days Grace</li>
+                        <li>Linkin Park</li>
+                    </ol>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="comments" class="comments bg-darker">
+        <h2>Comments</h2>
+        <p><i><b> NOTE: This section is currently only for demonstration purposes, no comments will appear on this website </b></i></p>
+
+        <form id="submit-form" action="https://www.w3schools.com/action_page.php" method="get">
+            <label class="form-label">Leave a comment?</label>
+            <div>
+                    <input type="text" class="form-control" id="comment" name="comment">
+            </div>
+            <div>
+                <button id="submitBtn2" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+    </section>
+</body>
