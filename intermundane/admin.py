@@ -1,10 +1,13 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import World, Character, AccessLevel, Account, ContentBlock
+from .models import World, Character, AccessLevel, User, ContentBlock, UserProgress, Response, AuditLog
 
 admin.site.register(World)
 admin.site.register(Character)
 admin.site.register(AccessLevel)
-admin.site.register(Account)
+admin.site.register(User)
 admin.site.register(ContentBlock)
+admin.site.register(UserProgress)
+admin.site.register(Response)
+admin.site.register(AuditLog)

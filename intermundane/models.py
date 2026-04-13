@@ -6,48 +6,74 @@ class AccessLevel(models.Model):
     level = models.IntegerField(default=0)
     #description = models.CharField(max_length=255)
     def __str__(self):
-        return self.name + " (level:"+str(self.level)+")"
+        return self.name + " (level: "+str(self.level)+")"
 
 # Create your models here.
-class Account(models.Model):
-    user = models.CharField(max_length=255, unique=True)
+class User(models.Model):
+    username = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
-    created = models.DateTimeField(auto_now_add=True)
-    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE,default=1)
+    created = models.DateTimeField(auto_now_add=True, blank=True)
+    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     def __str__(self):
         return self.user
 
 class World(models.Model):
     title = models.CharField(max_length=255)
-    page_route = models.CharField(max_length=255) #remove?
-    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE,default=1)
+    #page_route = models.CharField(max_length=255, blank=True) #remove?
+    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(blank=True, null=True)
     def __str__(self):
         return self.title
 
 class Character(models.Model):
     title = models.CharField(max_length=255)
-    page_route = models.CharField(max_length=255) #remove?
-    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE,default=1)
+    #page_route = models.CharField(max_length=255, blank=True) #remove?
+    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     world = models.ForeignKey(World, on_delete=models.CASCADE)
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(blank=True, null=True)
     def __str__(self):
         return self.title
 
 class ContentBlock(models.Model):
     key = models.CharField(max_length=255, unique=True)
-    character = models.ForeignKey(Character, on_delete=models.CASCADE, null=True)
-    world = models.ForeignKey(World, on_delete=models.CASCADE, null=True)
+    character = models.ForeignKey(Character, on_delete=models.CASCADE, null=True, blank=True)
+    world = models.ForeignKey(World, on_delete=models.CASCADE, null=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(blank=True, null=True)
     class Meta:
         constraints = [models.CheckConstraint(check=(Q(character__isnull=False)|Q(world__isnull=False)),name="requires_character_or_world")]
     def __str__(self):
         return self.key
 
 class UserProgress(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     key = models.ForeignKey(ContentBlock, on_delete=models.CASCADE)
     unlocked = models.DateTimeField(auto_now_add=True)
     class Meta:
         unique_together = ('user', 'key',)
+    def __str__(self):
+        return self.user + " -> " + self.key
 
+class Response(models.Model):
+    user_input = models.CharField(max_length=255, unique=True)
+    response = models.CharField(max_length=255, unique=True)
+    action = models.CharField(max_length=255, unique=True)
+    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, null=True, blank=True)
+    content_block = models.ForeignKey(ContentBlock, on_delete=models.CASCADE, null=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
+    deleted_at = models.DateTimeField(blank=True, null=True)
+    def __str__(self):
+        return self.user_input + " -> " + self.response + " ("+self.action+")"
+
+
+class AuditLog(models.Model):
+    action = models.CharField(max_length=255, unique=True)
+    timestamp = models.DateTimeField(auto_now_add=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.user + " -> " + self.action + " ("+str(self.timestamp)+")"
 '''
 guide from django documentation:
 
