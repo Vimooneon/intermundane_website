@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characters</title>
+  <link rel="stylesheet" href="../static/intermundane.css">
+</head>
+<body class="bg-dark">
+
+    {% include 'intermundane/navbar.html' %}
+    {% load i18n %}
+    <section id="lore" class="lore bg-dark">
+        <h1>{% trans "Lore significant locations" %}</h1>
+        <div class="lore-grid">
+        {% for world in worlds %}
+            <div class="lore-card" id="lore-{{ world }}">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>{{ world.title }}</h2>
+                    <p>The place where everything began and the anchor of the story, while the ethics of some of the experiments running here can be questioned, the technological advancement is undeniable</p>
+                    <a href="{% url 'worlds' %}/{{ world }}" class="btn btn-primary">{% trans "Read more" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+<!--            <div class="lore-card" id="lore-lab">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>The Lab</h2>
+                    <p>The place where everything began and the anchor of the story, while the ethics of some of the experiments running here can be questioned, the technological advancement is undeniable</p>
+                </div>
+            </div>
+            <div class="lore-card" id="lore-desert">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>The Desert</h2>
+                    <p>A world that resembles the Egypt known in our planet, except with capability of reaching much higher temperatures and containing unknown technologies inside the mysterious pyramids</p>
+                </div>
+            </div>
+            <div class="lore-card" id="lore-forest">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>The Forest</h2>
+                    <p>The ever-dark forest is among the most dangerous worlds in the lab's records, not only due to a lack of any natural lighting, but also the dangerous inhabitants of this place</p>
+                </div>
+            </div> -->
+    </section>
+</body>

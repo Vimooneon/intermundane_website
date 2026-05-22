@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characters</title>
+  <link rel="stylesheet" href="../static/intermundane.css">
+</head>
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
+
+    <h1>Characters page</h1>
+    {% for world in worlds %}
+        <h2>{{ world.title }}:</h2>
+        <ul>
+            {% for character in characters %}
+                {% if character.world.id == world.id %}
+                <li><a href="{% url 'characters' %}/{{ character }}">{{ character }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+</body>

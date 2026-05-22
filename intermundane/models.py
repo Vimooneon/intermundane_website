@@ -8,7 +8,6 @@ class AccessLevel(models.Model):
     def __str__(self):
         return self.name + " (level: "+str(self.level)+")"
 
-# Create your models here.
 class User(models.Model):
     username = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
@@ -66,7 +65,6 @@ class Response(models.Model):
     deleted_at = models.DateTimeField(blank=True, null=True)
     def __str__(self):
         return self.user_input + " -> " + self.response + " ("+self.action+")"
-
 
 class AuditLog(models.Model):
     action = models.CharField(max_length=255, unique=True)

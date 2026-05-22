@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermundane</title>
+  <link rel="stylesheet" href="../static/intermundane.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+{% load i18n %}
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
+
+    <section class="about">
+        <h2>{% trans "Info" %}</h2>
+        <div id="about-info"><p>
+        {% blocktrans %}This website is an arg - an interactive network narrative used to deliver a story that may be altered by players actions.<br>Throughout the website it is possible to find secret passwords that can be entered in the Box below.{% endblocktrans %}
+        </p></div>
+    </section>
+    <section class="code">
+        <h2>{% trans "Found a code?" %}</h2>
+        <form id="submit-form" action="" method="post">
+            <div class="input-code">
+                <input type="text" class="form-control" id="code" name="code">
+                <button id="submit" type="submit" class=" fa-solid fa-unlock fa-width-auto fa-lg"></button>
+            </div>
+        </form>
+    </section>
+</body>
+
