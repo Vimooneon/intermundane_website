@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+{% load i18n %}
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
+
+    <section class="profile profile-info">
+        <div>Name: {{ user.username }}</div>
+        <div>Level: {{ user.access_level }}</div>
+        <div><a href="{% url 'logout_view' %}" class="btn btn-primary">Logout</a></div>
+    </section>
+</body>

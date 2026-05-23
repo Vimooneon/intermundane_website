@@ -13,7 +13,10 @@ def index(request):
     #return HttpResponse(template.render())
 
 def worlds(request):
-    world_list = World.objects.filter(access_level__level=0)
+    user_level=0
+    if request.user.is_authenticated:
+        user_level = request.user.access_level.level
+    world_list = World.objects.filter(access_level__level__lte=user_level)
     return render(request, "intermundane/worlds.html", {"worlds": world_list})
 
 def world_detail(request, title):
@@ -25,22 +28,29 @@ def world_detail(request, title):
 
 
 def characters(request):
-    world_list = World.objects.filter(access_level__level=0)
-    character_list = Character.objects.filter(access_level__level=0)
+    user_level=0
+    if request.user.is_authenticated:
+        user_level = request.user.access_level.level
+    world_list = World.objects.filter(access_level__level__lte=user_level)
+    character_list = Character.objects.filter(access_level__level__lte=user_level)
     return render(request, "intermundane/characters.html", {"worlds": world_list, "characters": character_list})
 
 def character_detail(request, title):
+    user_level=0
+    if request.user.is_authenticated:
+        user_level = request.user.access_level.level
     character = get_object_or_404(Character, title=title)
     accessLevel = character.access_level.level
-    if(accessLevel==0):
+    if(accessLevel<=user_level):
         return render(request, "intermundane/characters/"+title+".html")
     return render(request, "intermundane/no-such-page.html", {"error": "you dont have necessary permission level"})
 
-def profile(request):
-    return render(request, "intermundane/characters.html")
 
-def registration(request):
-    return render(request, "intermundane/characters.html")
+'''
+Localisation:
 
-def login(request):
-    return render(request, "intermundane/characters.html")
+django-admin makemessages -l es
+
+django-admin compilemessages
+
+'''

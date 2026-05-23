@@ -29,7 +29,7 @@ msgid ""
 "story that may be altered by players actions.<br>Throughout the website it "
 "is possible to find secret passwords that can be entered in the Box below."
 msgstr ""
-"Este sitio web es un «arg», una narrativa interactiva en red que se utiliza para contar"
+"Este sitio web es un «arg», una narrativa interactiva en la red que se utiliza para contar"
 "una historia que puede verse alterada por las acciones de los jugadores. <br>A lo largo del sitio web"
 "es posible encontrar contraseñas secretas que se pueden introducir en el cuadro que aparece a continuación."
 
@@ -48,7 +48,7 @@ msgstr "Perfil"
 
 #: intermundane/templates/intermundane/worlds.html:13
 msgid "Lore significant locations"
-msgstr "Lugares emblemáticos de la historia"
+msgstr "Lugares importantes de la historia"
 
 #: intermundane/templates/intermundane/worlds.html:21
 msgid "Read more"

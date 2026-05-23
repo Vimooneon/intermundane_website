@@ -2,25 +2,28 @@
     <header class="header bg-darker">
         <nav class="navbar">
         <ul class="nav-links">
-            <li><a href="{% url 'index' %}">Intermundane</a></li>
-            <li><a href="{% url 'worlds' %}">{% trans "Worlds" %}</a></li>
-            <li> <img class="navbar-image" src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100037_2ZVlqeIqWqYJ6Qd.png?1779372637"> <a href="{% url 'characters' %}">{% trans "Characters" %}</a></li>
-            <li><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
-        </ul>
-        <form action="{% url 'set_language' %}" method="post">
-            {% csrf_token %}
-            <select name="language">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
+            <li><i class="fa-solid fa-spiral fa-xl"></i><a href="{% url 'index' %}">Intermundane</a></li>
+            <li><i class="fa-solid fa-globe fa-xl"></i><a href="{% url 'worlds' %}">{% trans "Worlds" %}</a></li>
+            <li><img class="navbar-image" src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100037_2ZVlqeIqWqYJ6Qd.png?1779372637" style="height:auto; width:100px"> <a href="{% url 'characters' %}">{% trans "Characters" %}</a></li>
+            <li><i class="fa-solid fa-circle-user fa-xl"></i><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+            <li>
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <select id="navbar-select" name="language" onchange="this.form.submit()" class="form-select bg-dark">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
 
-                {% for lang_code, lang_name in LANGUAGES %}
-                    <option value="{{ lang_code }}"
-                        {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
-                        {{ lang_name }}
-                    </option>
-                {% endfor %}
-            </select>
-            <button type="submit">Change</button>
-        </form>
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <option value="{{ lang_code }}"
+                                {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ lang_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </li>
+        </ul>
+
+
         </nav>
     </header>

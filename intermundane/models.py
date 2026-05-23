@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Q
+from django.contrib.auth.models import AbstractUser
 
 class AccessLevel(models.Model):
     name = models.CharField(max_length=255)
@@ -8,13 +9,12 @@ class AccessLevel(models.Model):
     def __str__(self):
         return self.name + " (level: "+str(self.level)+")"
 
-class User(models.Model):
-    username = models.CharField(max_length=255, unique=True)
-    password = models.CharField(max_length=255)
+class User(AbstractUser):
+    email = None
     created = models.DateTimeField(auto_now_add=True, blank=True)
     access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     def __str__(self):
-        return self.user
+        return self.username
 
 class World(models.Model):
     title = models.CharField(max_length=255)

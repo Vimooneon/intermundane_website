@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intermundane</title>
-  <link rel="stylesheet" href="../static/intermundane.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 {% load i18n %}
@@ -20,6 +21,7 @@
     <section class="code">
         <h2>{% trans "Found a code?" %}</h2>
         <form id="submit-form" action="" method="post">
+            {% csrf_token %}
             <div class="input-code">
                 <input type="text" class="form-control" id="code" name="code">
                 <button id="submit" type="submit" class=" fa-solid fa-unlock fa-width-auto fa-lg"></button>

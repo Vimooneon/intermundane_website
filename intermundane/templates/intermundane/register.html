@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intermundane</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+{% load i18n %}
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
+
+    {% if user.is_authenticated %}
+        <p>Your are already registered, proceed to profile?</p>
+        <a href="{%url 'profile'%}" class="btn btn-primary">Profile</a>
+    {% else %}
+        <h1>Register</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            Register
+        </button>
+    </form>
+    {% endif %}
+
+</body>
