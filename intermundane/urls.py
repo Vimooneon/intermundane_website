@@ -7,9 +7,9 @@ from . import views, user_authentication, progress
 urlpatterns = [
     path("", views.index, name="index"),
     path("worlds", views.worlds, name="worlds"),
-    path("worlds/<slug:title>", views.world_detail, name="world_detail"),
+    path("worlds/<slug:slug>", views.world_detail, name="world_detail"),
     path("characters", views.characters, name="characters"),
-    path("characters/<slug:title>", views.character_detail, name="character_detail"),
+    path("characters/<slug:slug>", views.character_detail, name="character_detail"),
     path("profile", user_authentication.profile, name="profile"),
     path("register", user_authentication.register_view, name="register_view"),
 

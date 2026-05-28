@@ -1,14 +1,60 @@
 from django.contrib import admin
+from parler.admin import TranslatableAdmin
 
 # Register your models here.
-from .models import World, Character, AccessLevel, User, ContentBlock, UserProgress, Response, AuditLog, Description
+from .models import World, Character, User, ContentBlock, UserProgress, AuditLog, CharacterContentBlock, WorldContentBlock, AccessLevel, Response
 
 admin.site.register(World)
 admin.site.register(Character)
-admin.site.register(AccessLevel)
 admin.site.register(User)
 admin.site.register(ContentBlock)
 admin.site.register(UserProgress)
-admin.site.register(Response)
 admin.site.register(AuditLog)
-admin.site.register(Description)
+
+@admin.register(CharacterContentBlock)
+class CharacterContentBlockAdmin(TranslatableAdmin):
+    list_display = (
+        "id",
+        "character",
+        "block_type",
+        "sequence",
+    )
+    search_fields = (
+        "translations__title",
+        "translations__body",
+    )
+
+@admin.register(AccessLevel)
+class AccessLevelTranslatedAdmin(TranslatableAdmin):
+    list_display = (
+        "level",
+    )
+    search_fields = (
+        "translations__name",
+    )
+
+@admin.register(Response)
+class ResponseTranslatedAdmin(TranslatableAdmin):
+    list_display = (
+        "id",
+        "user_input",
+        "action",
+        "is_deleted",
+    )
+    search_fields = (
+        "translations__response",
+    )
+
+@admin.register(WorldContentBlock)
+class WorldContentBlockAdmin(TranslatableAdmin):
+
+    list_display = (
+        "id",
+        "world",
+        "block_type",
+    )
+
+    search_fields = (
+        "translations__title",
+        "translations__body",
+    )

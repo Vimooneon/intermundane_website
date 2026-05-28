@@ -3,5 +3,6 @@ static
 db.sqlite3
 intermundane/__pycache__
 intermundane/migrations
+intermundane/management/commands
 mysite/settings.py
 mysite/__pycache__
