@@ -30,6 +30,7 @@ class Character(models.Model):
     #page_route = models.CharField(max_length=255, blank=True) #remove?
     access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     world = models.ForeignKey(World, on_delete=models.CASCADE)
+    image_link = models.CharField(max_length=255, null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
     deleted_at = models.DateTimeField(blank=True, null=True)
     def __str__(self):
@@ -72,6 +73,23 @@ class AuditLog(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.user + " -> " + self.action + " ("+str(self.timestamp)+")"
+
+class Description(models.Model):
+    title = models.CharField(max_length=255, null=True, blank=True)
+    desc = models.TextField()
+    languageCode = models.CharField(max_length=10)
+    sequenceNumber = models.IntegerField(default=0)
+    character = models.ForeignKey(Character, on_delete=models.CASCADE, null=True, blank=True)
+    world = models.ForeignKey(World, on_delete=models.CASCADE, null=True, blank=True)
+    class Meta:
+        constraints = [models.CheckConstraint(check=(Q(character__isnull=False)|Q(world__isnull=False)),name="requires_a_character_or_world")]
+    def __str__(self):
+        if self.world:
+            return self.title + " (world: " + self.world.title + ")" + "[" + self.languageCode + "]"
+        return self.title + " (character:" + self.character.title + ")" + "[" + self.languageCode + "]"
+
+
+
 '''
 guide from django documentation:
 

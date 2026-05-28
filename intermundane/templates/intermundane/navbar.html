@@ -2,10 +2,10 @@
     <header class="header bg-darker">
         <nav class="navbar">
         <ul class="nav-links">
-            <li><i class="fa-solid fa-spiral fa-xl"></i><a href="{% url 'index' %}">Intermundane</a></li>
-            <li><i class="fa-solid fa-globe fa-xl"></i><a href="{% url 'worlds' %}">{% trans "Worlds" %}</a></li>
-            <li><img class="navbar-image" src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100037_2ZVlqeIqWqYJ6Qd.png?1779372637" style="height:auto; width:100px"> <a href="{% url 'characters' %}">{% trans "Characters" %}</a></li>
-            <li><i class="fa-solid fa-circle-user fa-xl"></i><a href="{% url 'profile' %}">{% trans "Profile" %}</a></li>
+            <li><a href="{% url 'index' %}"><i class="fa-solid fa-spiral fa-xl"></i> Intermundane</a></li>
+            <li><a href="{% url 'worlds' %}"><i class="fa-solid fa-globe fa-xl"></i> {% trans "Worlds" %}</a></li>
+            <li><a href="{% url 'characters' %}"><img class="navbar-image" src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100037_2ZVlqeIqWqYJ6Qd.png?1779372637">{% trans "Characters" %}</a></li>
+            <li><a href="{% url 'profile' %}"><i class="fa-solid fa-circle-user fa-xl"></i> {% trans "Profile" %}</a></li>
             <li>
                 <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}

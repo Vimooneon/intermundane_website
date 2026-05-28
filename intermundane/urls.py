@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views, user_authentication
+from . import views, user_authentication, progress
 
 #from django.contrib.auth import views as auth_views
 
@@ -14,6 +14,8 @@ urlpatterns = [
     path("register", user_authentication.register_view, name="register_view"),
 
     path("logout", user_authentication.logout_view, name="logout_view"),
+
+    path("found-code", progress.found_code, name="found_code")
 ]
 
 # path("accounts/login/", auth_views.LoginView.as_view(template_name="intermundane/login.html")), path("login", user_authentication.login_view, name="login_view"),

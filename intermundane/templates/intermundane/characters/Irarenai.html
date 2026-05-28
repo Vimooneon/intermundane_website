@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Irarenai</title>
-  <link rel="stylesheet" href="../../static/intermundane.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
@@ -19,18 +21,17 @@
         <strong><span style="font-size: 60px; font-family: impact, chicago;">IRARENAI</span></strong>
           <span style="font-family: courier new,courier;"><span style="font-size: 18px;">
           <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100106_8kMsr13CU3QOj6z.png?1779373296" class="fr-fic fr-dii fa-bounce" style="position:relative; top:30px; --fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></span><br></span>
-          <span style='font-size: 18px; font-family: "courier new ", courier;'>The depresso cat</span><br>
+          <span style='font-size: 18px; font-family: "courier new ", courier;'>{{ name.desc }}</span><br>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;">
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/95302232_CdoE24EYBBIO5R6.png" style="height:auto; margin:15px; float:left" width="525" height="646.151"><br><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;About:</strong></span><br>
-            <span style="font-size: 24px;"> Irarenai was first time the lab successfuly revived an experiment subject for a prolonged period of time. Irarenai was created using a corpse of a cat with the help of lab's the newly developed cyan liquid which supposed to fuse with the body and create undead beings who do not need food or sleep to live. However it also seemed that the particular subjects body rebelled against the liquid take over showing violent behavior and refusal to obey any orders. In order to subdue the subject a cut in the neck was made which resulted in subject losing ability to speak.
-            </span>
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/95302232_CdoE24EYBBIO5R6.png" style="height:auto; margin:15px; float:left" width="525" height="646.151"><br><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;{{ about.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ about.desc }} </span>
           <br></td></tr></tbody></table>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;"><br>
             <span style='font-family: "courier new ", courier; font-size: 36px;'>
             <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/97261977_0KSvM6MckZRd3lI.png" style="height:auto; margin:15px; float:right" width="491.989" height="491.989">
-            <strong>&nbsp;Powers:</strong></span><br>
-            <span style="font-size: 24px;"> Besides the attempt at fusing the subject corpse with the liquid some mechanical augmentation have been made, like the antennas that could receive and send signals to the lab reporting current state of the subject and their observations. Being undead the subject can be also used for dangerous operations without fear of it dying. </span><br><br></td></tr>
-          </tbody></table>
+            <strong>&nbsp;{{ powers.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ powers.desc }}</span><br><br></td></tr>
+            </tbody></table>
         </tr>
       </tbody></table>
       <br><br>

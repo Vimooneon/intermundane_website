@@ -1,0 +1,24 @@
+{% load i18n %}
+{% include 'intermundane/navbar.html' %}
+
+<section>
+    <div class="center"><h1>{{ world.title }}</h1></div>
+    <section>
+        <div id="character_list">
+            <h2>{% trans "Characters" %}:</h2>
+            {% if characters %}
+            <ul class="no_style">
+                {% for character in characters %}
+                    <li><a href="{% url 'characters' %}/{{ character }}"><img class="navbar-image" src="{{ character.image_link }}">{{ character }}</a></li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            {% trans "Seems your access level doesnt grant such information" %}
+            {% endif %}
+        </div>
+        <div>
+            <h2>{% trans "General description" %}:</h2>
+            <p>{{ world.desc }}</p>
+        </div>
+    </section>
+</section>

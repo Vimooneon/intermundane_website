@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,12 +16,12 @@
         <h1>{% trans "Lore significant locations" %}</h1>
         <div class="lore-grid">
         {% for world in worlds %}
-            <div class="lore-card" id="lore-{{ world }}">
+            <div class="lore-card" id="lore-{{ world.world }}">
                 <div class="background-overlay"></div>
                 <div class="lore-card-content">
                     <h2>{{ world.title }}</h2>
-                    <p>The place where everything began and the anchor of the story, while the ethics of some of the experiments running here can be questioned, the technological advancement is undeniable</p>
-                    <a href="{% url 'worlds' %}/{{ world }}" class="btn btn-primary">{% trans "Read more" %}</a>
+                    <p>{{ world.desc }}</p>
+                    <a href="{% url 'worlds' %}/{{ world.world }}" class="btn btn-primary">{% trans "Read more" %}</a>
                 </div>
             </div>
         {% endfor %}

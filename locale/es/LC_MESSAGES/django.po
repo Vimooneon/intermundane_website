@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-22 13:22+0000\n"
+"POT-Creation-Date: 2026-05-27 19:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,37 +19,118 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
-#: intermundane/templates/intermundane/index.html:15
+#: intermundane/templates/intermundane/characters.html:16
+#: intermundane/templates/intermundane/navbar.html:7
+#: intermundane/templates/intermundane/worlds/world_template.html:6
+msgid "Characters"
+msgstr "Personajes"
+
+#: intermundane/templates/intermundane/index.html:16
 msgid "Info"
 msgstr "Información"
 
-#: intermundane/templates/intermundane/index.html:17
+#: intermundane/templates/intermundane/index.html:18
 msgid ""
 "This website is an arg - an interactive network narrative used to deliver a "
 "story that may be altered by players actions.<br>Throughout the website it "
 "is possible to find secret passwords that can be entered in the Box below."
 msgstr ""
-"Este sitio web es un «arg», una narrativa interactiva en la red que se utiliza para contar"
-"una historia que puede verse alterada por las acciones de los jugadores. <br>A lo largo del sitio web"
-"es posible encontrar contraseñas secretas que se pueden introducir en el cuadro que aparece a continuación."
+"Este sitio web es un «arg», una narrativa interactiva en la red que se "
+"utiliza para contar una historia que puede verse alterada por las acciones "
+"de los jugadores. <br>A lo largo del sitio webes posible encontrar "
+"contraseñas secretas que se pueden introducir en el cuadro que aparece a "
+"continuación."
 
+#: intermundane/templates/intermundane/index.html:22
+msgid "Found a code?"
+msgstr "¿Encontraste un código?"
+
+#: intermundane/templates/intermundane/index.html:32
+msgid "You need to login to progress this arg!"
+msgstr "¡Debes iniciar sesión para continuar con este argumento!"
+
+#: intermundane/templates/intermundane/index.html:34
+msgid "Such code does not exist"
+msgstr "Dicho código no existe"
+
+#: intermundane/templates/intermundane/index.html:36
+msgid "Huh, seems you are early"
+msgstr "Vaya, parece que llegaste temprano"
 
 #: intermundane/templates/intermundane/navbar.html:6
 msgid "Worlds"
 msgstr "Mundos"
 
-#: intermundane/templates/intermundane/navbar.html:7
-msgid "Characters"
-msgstr "Personajes"
-
 #: intermundane/templates/intermundane/navbar.html:8
 msgid "Profile"
 msgstr "Perfil"
 
-#: intermundane/templates/intermundane/worlds.html:13
+#: intermundane/templates/intermundane/profile.html:16
+msgid "Name"
+msgstr "Nombre"
+
+#: intermundane/templates/intermundane/profile.html:17
+msgid "Level"
+msgstr "Nivel"
+
+#: intermundane/templates/intermundane/profile.html:18
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: intermundane/templates/intermundane/register.html:18
+#: intermundane/templates/intermundane/register.html:45
+msgid "Register"
+msgstr "Registrate"
+
+#: intermundane/templates/intermundane/register.html:27
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: intermundane/templates/intermundane/register.html:43
+msgid "Already have account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: intermundane/templates/intermundane/register.html:43
+msgid "Login instead"
+msgstr "Iniciar sesion"
+
+#: intermundane/templates/intermundane/worlds.html:16
 msgid "Lore significant locations"
 msgstr "Lugares importantes de la historia"
 
-#: intermundane/templates/intermundane/worlds.html:21
+#: intermundane/templates/intermundane/worlds.html:24
 msgid "Read more"
 msgstr "Más información"
+
+#: intermundane/templates/intermundane/worlds/world_template.html:14
+msgid "Seems your access level doesnt grant such information"
+msgstr "Parece que tu nivel de acceso no te permite consultar esa información"
+
+#: intermundane/templates/intermundane/worlds/world_template.html:16
+msgid "General description"
+msgstr "Descripción general"
+
+#: intermundane/templates/registration/login.html:18
+#: intermundane/templates/registration/login.html:32
+msgid "Login"
+msgstr "Iniciar sesion"
+
+#: intermundane/templates/registration/login.html:21
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: intermundane/templates/registration/login.html:24
+msgid "Password"
+msgstr "Contraseña"
+
+#: intermundane/templates/registration/login.html:27
+msgid "Your username and password didn't match. Please try again."
+msgstr "Tu nombre de usuario y contraseña no coinciden. Inténtalo de nuevo."
+
+#: intermundane/templates/registration/login.html:30
+msgid "Don't have account?"
+msgstr "¿No tienes cuenta?"
+
+#: intermundane/templates/registration/login.html:30
+msgid "Register instead"
+msgstr "Registrate"

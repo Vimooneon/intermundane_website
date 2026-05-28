@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurora</title>
-  <link rel="stylesheet" href="../../static/intermundane.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
 <body class="bg-dark">
     {% include 'intermundane/navbar.html' %}
     <div style="position:fixed;bottom:5px;right:5px;z-index:3;width:320px;height:50px; display:flex; align-items:center; justify-content:center; max-width: 15%;">
-      <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/105202360_CyebZjviSB55TnH.png" class="tooltipster" title="Knowledge is power!" style="max-width:15%;position:fixed;bottom:5px;right:5px;z-index:3;" alt="no-image-found" width="320" height="320">
+      <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/105202360_CyebZjviSB55TnH.png" class="tooltipster" title="Knowledge is power!" style="height:auto;max-width:15%;position:fixed;bottom:5px;right:5px;z-index:3;" alt="no-image-found" width="320" height="320">
         <i class="fas fa-play" style="color:#cac9cd; position:absolute;"></i>
         <iframe style="height:8rem;width:8rem;opacity:0;z-index:5; position:absolute;" src="https://www.youtube-nocookie.com/embed/QFFcdvBwJVM?controls=0" frameborder="0"></iframe>
     </div>
@@ -19,23 +21,17 @@
         <strong><span style="font-size: 60px; font-family: impact, chicago;">Aurora</span></strong>
           <span style="font-family: courier new,courier;"><span style="font-size: 18px;">
           <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/120222571_C0JOp11jf6ppdDG.png?1779372823" class="fr-fic fr-dii fa-bounce" style="position:relative; top:30px; --fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></span><br></span>
-          <span style='font-size: 18px; font-family: "courier new ", courier;'>The mage dog</span><br>
+          <span style='font-size: 18px; font-family: "courier new ", courier;'>{{ name.desc }}</span><br>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;">
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/106887813_XboTM259oRN2aNQ.png" style="height:auto; margin:15px; float:left" width="500" height="500"><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;About:</strong></span><br>
-            <span style="font-size: 24px;"> Aurora was born in a kingdom that was caught in a decade old war with unclear origins. Being born a royalty Aurora had access to learning magic spells and frequent updates on the kingdoms military states. Although despising violence, Aurora couldn't bear the thought of simply watching the war from the sidelines while others died. After finishing hear studies she qualified as support mage and went onto the battlefield casting protecting spells on her allies.
-            </span>
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/106887813_XboTM259oRN2aNQ.png" style="height:auto; margin:15px; float:left" width="500" height="500"><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;{{ about.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ about.desc }} </span>
           <br></td></tr></tbody></table>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;"><br>
             <span style='font-family: "courier new ", courier; font-size: 36px;'>
             <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/105883462_kWxQZljeg941aYb.png" style="height:auto; margin:15px; float:right" width="491.989" height="491.989">
-            <strong>&nbsp;Powers:</strong></span><br>
-            <span style="font-size: 24px;"> Aurora seemed to have a natural talent to learning magic, understanding spells much faster than other noble kids. Aurora chose support, particularly defense magic, as her specification. Aurora's distinct spell is to cast a round force shield that would block incoming physical and magic attacks. But she does also know some other spells, mostly related to water/ice manipulations. Aurora also carries a magic book that has records of all her known spells and slightly amplifies the power of these spells.</span><br><br></td></tr>
-          </tbody></table>
-          <br><span style="font-size: 24px;">Design notes:</span><br>
-          <span style="font-size: 24px;">Is a dog, not a cat (despite some arts saying opposite-)</span><br>
-          <span style="font-size: 24px;">Pls draw with accessories and magic book</span><br>
-          <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104891698_LCOigzSdRp6BwzM.png?1754500090" class="fr-fic fr-dib" width="799.375" height="558.352">
-          <br><br><br><br><br>
+            <strong>&nbsp;{{ powers.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ powers.desc }}</span><br><br></td></tr>
+            </tbody></table>
         </tr>
       </tbody></table>
       <br><br>

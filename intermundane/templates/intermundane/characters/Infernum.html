@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infernum</title>
-  <link rel="stylesheet" href="../../static/intermundane.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
@@ -19,23 +21,17 @@
         <strong><span style="font-size: 60px; font-family: impact, chicago;">INFERNUM</span></strong>
           <span style="font-family: courier new,courier;"><span style="font-size: 18px;">
           <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100087_Vm27HAmFjirPkuK.png?1779373220" class="fr-fic fr-dii fa-bounce" style="position:relative; top:30px; --fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></span><br></span>
-          <span style='font-size: 18px; font-family: "courier new ", courier;'>The fiery cat</span><br>
+          <span style='font-size: 18px; font-family: "courier new ", courier;'>{{ name.desc }}</span><br>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;">
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/89837312_Ejz37MqBF41tiHI.jpg" style="height:auto; margin:15px; float:left" width="500" height="500"><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;About:</strong></span><br>
-            <span style="font-size: 24px;"> Infernum's story takes place in a medieval wolrd where the decade long war broke out between 2 kingdoms. As a little kitten he saw others fight and started learning how to fight himself. Later in life when fighting on his kingdom side his fighting skills were noticed by others, and he was eventually promoted to be a general of a squad. Once in a heat of a battle he took a lethal wound and died, but before he could be buried due to unkown circumstances he was brought back to life with newly gained fire abilities.
-            </span>
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/89837312_Ejz37MqBF41tiHI.jpg" style="height:auto; margin:15px; float:left" width="500" height="500"><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;{{ about.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ about.desc }} </span>
           <br></td></tr></tbody></table>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;"><br>
             <span style='font-family: "courier new ", courier; font-size: 36px;'>
             <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/108814632_lsvQKPrcJYH8eoP.png" style="height:auto; margin:15px; float:right" width="491.989" height="491.989">
-            <strong>&nbsp;Powers:</strong></span><br>
-            <span style="font-size: 24px;"> Infernum can produce heat upto 1500 degrees, which can easily light on fire everything around him. The heat or surrounding fire do not seem to affect him negatively, besides the fact that producing this much heat could make him exhaust quickly. His powers are mainly used for offense and are tied to his emotional state(power being amplified when he seems happy or angry, but weakened when he is sad)</span><br><br></td></tr>
-          </tbody></table>
-          <br><span style="font-size: 24px;">Design notes:</span><br>
-          <span style="font-size: 24px;">Eye pupils are like flames</span><br>
-          <span style="font-size: 24px;">Has steel plate on his nose</span><br>
-          <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/91091173_6u2Gv12T2SMqesZ.png " class="fr-fic fr-dib" width="799.375" height="558.352">
-          <br><br><br><br><br>
+            <strong>&nbsp;{{ powers.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ powers.desc }}</span><br><br></td></tr>
+            </tbody></table>
         </tr>
       </tbody></table>
       <br><br>

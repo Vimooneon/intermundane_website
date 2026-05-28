@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3nc0d3d</title>
-  <link rel="stylesheet" href="../../static/intermundane.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
@@ -18,18 +20,17 @@
         <span style="font-size: 36px;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></span>
         <strong><span style="font-size: 60px; font-family: impact, chicago;">3NC0D3D</span></strong>
           <span style="font-family: courier new,courier;"><span style="font-size: 18px;">
-          <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100037_2ZVlqeIqWqYJ6Qd.png?1779372637" class="fr-fic fr-dii fa-bounce" style="position:relative; top:50px; --fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></span><br></span>
-          <span style='font-size: 18px; font-family: "courier new ", courier;'>0001 The code cat 1001</span><br>
+          <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104100037_2ZVlqeIqWqYJ6Qd.png?1779372637" class="fr-fic fr-dii fa-bounce" style="position:relative; top:30px; --fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></span><br></span>
+          <span style='font-size: 18px; font-family: "courier new ", courier;'>{{ name.desc }}</span><br>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;">
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104440423_NGUnTR3N2ivQOby.png?1753703061 " class="fr-fic fr-dii fr-fil" style="margin:15px; float:left" width="525" height="646.151"> <span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;About:</strong></span><br>
-            <span style="font-size: 24px;"> A perfect bridge between technological and real world, 3NC0D3D was created at a lab which delves into the topic of traveling to different worlds. He serves as the main operator of the lab overseeing and controlling all processes within. His ability to remotely access screens across the lab and high processing power allows him to complete his tasks with excellent precision and avoid any mistakes. Although initially 3NC0D3D was only cold and calculative, later on the request of lab personell he was added some emotions. There were however limitations towards adding emotions since they were not planned in original design, so they had to be limited to just 4, represented as binary: 00-sad, 01-serious, 10-angry and 11-happy.
-            </span>
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104440423_NGUnTR3N2ivQOby.png?1753703061 " class="fr-fic fr-dii fr-fil" style="margin:15px; float:left" width="525" height="646.151"> <span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;{{ about.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ about.desc }} </span>
           <br></td></tr></tbody></table>
           <table style=" border: 1px solid transparent; margin-right: calc(0%);"><tbody><tr><td style="width: 100%; text-align: left;"><br>
             <span style='font-family: "courier new ", courier; font-size: 36px;'>
             <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/118563435_AwOOmccisYVxpA1.png " style="margin:15px; float:right" class="fr-fic fr-fir fr-dii" width="491.989" height="491.989">
-            <strong>&nbsp;Powers:</strong></span><br>
-            <span style="font-size: 24px;">3NC0D3D can fully transfer his consciousness to digital world and back to his physical body. While in digital world 3NC0D3D has unlimited access to data of device where he is, he also remains with ability to transfer himself to another device via internet.</span><br><span style="font-size: 24px;">In order for his physical body to function it has a visible energy core (the blue sphere on the chest) that stores enough energy for him to function another millennium without needing a recharge. In case of a threat to the lab personnel or himself the core can produce lightning shocks that can stun or even kill the threat if necessary.&nbsp;</span><br><br></td></tr>
+            <strong>&nbsp;{{ powers.title }}</strong></span><br>
+            <span style="font-size: 24px;">{{ powers.desc }}</span><br><br></td></tr>
           </tbody></table>
           </tr>
     </tbody></table>

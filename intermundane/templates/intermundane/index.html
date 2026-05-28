@@ -20,13 +20,27 @@
     </section>
     <section class="code">
         <h2>{% trans "Found a code?" %}</h2>
-        <form id="submit-form" action="" method="post">
+        <form id="submit-form" action="{% url 'found_code' %}" method="post">
             {% csrf_token %}
             <div class="input-code">
                 <input type="text" class="form-control" id="code" name="code">
                 <button id="submit" type="submit" class=" fa-solid fa-unlock fa-width-auto fa-lg"></button>
             </div>
         </form>
+        <div class="error">
+            {% if error == 'need-login' %}
+                <p>{% trans 'You need to login to progress this arg!' %}</p>
+            {% elif error == 'no-code' %}
+                <p>{% trans 'Such code does not exist' %}</p>
+            {% elif error == 'early-code' %}
+                <p>{% trans 'Huh, seems you are early' %}</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if response %}
+                {% trans response %}
+            {% endif %}
+        </div>
     </section>
 </body>
 

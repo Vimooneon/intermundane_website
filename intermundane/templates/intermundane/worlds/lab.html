@@ -1,1 +1,58 @@
-nothing here, you are too early
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+{% load i18n %}
+<body class="bg-dark">
+    {% include 'intermundane/worlds/world_template.html' %}
+
+    <section>
+    <div>
+        <h2>Chapter 1, Historical data</h2>
+        <p>
+            In the year 2500, somewhere in the sahara deserts a new lab was established by [■■■■■■■], their official field of research was bio-engineering, however no one outside of people working there really knew what exactly was happening there.<br>
+            Rumors also say that they were funded by government in help with certain project involving artifical intelligence.
+        </p>
+    </div>
+    {% if user.access_level.level < 2 %}
+        <p>{% trans "Seems to access further data you need to be part of lab personell, try <em>work-at-lab</em> if you want to read further" %}</p>
+    {% endif %}
+    <div>
+        <h2>Chapter 2, The initialization</h2>
+        <p>
+            If you are reading this, congratulations on becoming part of the staff at our lab <br>
+            We take pride in our research on creating living beings, both artificially intelligent and even biologically alive, I suppose you might want to introduce yourself to some of the <a href="character_list">files</a> we have on beings within our facility, make sure to read them carefully!
+            You may also ask 3nc0d3d for any additional info you may need.
+        </p>
+    </div>
+    <div>
+        <h2>Chapter 3, The outer-worldly technology</h2>
+        <p>Aliens? Don't be silly, that's not our field of research<br>
+        However there is something else we discovered while searching for the source of life<br>
+        Let me introduce you to the GATE (grand abnormal teleportation equipment)<br>
+        With the use of GATE we were able to visit worlds different from ours!<br>
+        You may check them out on the <a href="{% url 'worlds' %}">worlds page</a><br>
+        <br>
+        The worlds are sure mysterious places wonder if you may find something that can advance your research while reading about them.</p>
+
+        <p>
+            Congrats on becoming a part of senior staff!
+
+There were certain things we dont really tell the newcomers, but since you seem to be a big part of our collective now, I will let you know about them
+
+We were once commissioned by the government to make an AI that would focus on researching crimes and otherwise fields that require deductive thinking, you can read more about them here:
+[4ss0ci4te]
+
+And there was another creation, a sort of bio-weapon that even most of the personnel is still unaware about, even among our ranks we rarely bring them up:
+[Toxin]
+        </p>
+    </div>
+
+    </section>
+</body>

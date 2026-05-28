@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,17 +9,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body class="bg-dark">
+    {% load i18n %}
     {% include 'intermundane/navbar.html' %}
 
     <div class="characters-v2">
-        <h1>Characters</h1>
+        <h1>{% trans "Characters" %}</h1>
         {% for world in worlds %}
         <div class="characters-v2-info">
             <h2>{{ world.title }}:</h2>
-            <ul>
+            <ul class="no_style">
                 {% for character in characters %}
-                    {% if character.world.id == world.id %}
-                    <li><a href="{% url 'characters' %}/{{ character }}">{{ character }}</a></li>
+                    {% if character.world == world.world %}
+                    <li><a href="{% url 'characters' %}/{{ character }}"><img class="navbar-image" src="{{ character.image_link }}">{{ character }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>

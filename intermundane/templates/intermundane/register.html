@@ -12,18 +12,39 @@
 <body class="bg-dark">
     {% include 'intermundane/navbar.html' %}
 
-    {% if user.is_authenticated %}
-        <p>Your are already registered, proceed to profile?</p>
-        <a href="{%url 'profile'%}" class="btn btn-primary">Profile</a>
-    {% else %}
-        <h1>Register</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">
-            Register
-        </button>
-    </form>
+    <br><br><br>
+
+    <form method="post" class="log-form bg-darker center">
+    <h1>{% trans "Register" %}</h1>
+    {% csrf_token %}
+    <div>
+        {{ form.username.label_tag }} {{ form.username }}
+    </div>
+    <div>
+        {{ form.password1.label_tag }} {{ form.password1 }}
+    </div>
+    <div>
+        {% trans "Confirm" %}: {{ form.password2 }}
+    </div>
+
+    {% if form.errors %}
+        {% for field, errors in form.errors.items %}
+            <ul class="no_style">
+                {% for error in errors %}
+                    <li class="error">{{ field }}: {{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div>{{ error }}</div>
+        {% endfor %}
     {% endif %}
+    <div>
+        <p>{% trans "Already have account?" %} <a href="{% url 'login' %}">{% trans "Login instead" %}</a></p>
+    </div>
+    <input type="submit" class="btn btn-primary" value="{% trans "Register" %}">
+    </table>
+    <input type="hidden" name="next" value="{{ next }}">
+    </form>
 
 </body>

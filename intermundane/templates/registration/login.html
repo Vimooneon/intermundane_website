@@ -12,38 +12,28 @@
 <body class="bg-dark">
     {% include 'intermundane/navbar.html' %}
 
-    {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
+    <br><br><br>
 
-    {% if next %}
-        {% if user.is_authenticated %}
-        <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-        {% else %}
-        <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
-
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" class="log-form bg-darker center" action="{% url 'login' %}">
+        <h1>{% trans "Login" %}</h1>
     {% csrf_token %}
-    <table>
-    <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-    </tr>
-    <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-    </tr>
+    <div>
+        {% trans "Username" %}: {{ form.username }}
+    </div>
+    <div>
+        {% trans "Password" %}: {{ form.password }}
+    </div>
+    {% if form.errors %}
+    <p class="error">{% trans "Your username and password didn't match. Please try again." %}</p>
+    {% endif %}
+    <div>
+        <p>{% trans "Don't have account?" %} <a href="{% url 'register_view' %}">{% trans "Register instead" %}</a></p>
+    </div>
+    <input type="submit" class="btn btn-primary" value="{% trans "Login" %}">
     </table>
-
-    <input type="submit" value="login">
     <input type="hidden" name="next" value="{{ next }}">
     </form>
 
-    <h3>Don't have account?</h3>
-    <a href="{% url 'register_view' %}" class="btn btn-primary">Register</a>
 </body>
 
 

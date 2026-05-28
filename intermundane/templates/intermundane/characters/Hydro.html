@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hydro</title>
-  <link rel="stylesheet" href="../../static/intermundane.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
 </head>
@@ -19,23 +21,17 @@
         <strong><span style="font-size: 60px; font-family: impact, chicago;">HYDRO</span></strong>
           <span style="font-family: courier new,courier;"><span style="font-size: 18px;">
           <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104805257_hs33m016RtsIwFA.png?1779373139" class="fr-fic fr-dii fa-bounce" style="position:relative; top:30px; --fa-bounce-start-scale-x: 1;--fa-bounce-start-scale-y: 1;--fa-bounce-jump-scale-x: 1;--fa-bounce-jump-scale-y: 1;--fa-bounce-land-scale-x: 1;--fa-bounce-land-scale-y: 1;--fa-bounce-rebound: 0;"></span><br></span>
-          <span style='font-size: 18px; font-family: "courier new ", courier;'>The water cat</span><br>
+          <span style='font-size: 18px; font-family: "courier new ", courier;'>{{ name.desc }}</span><br>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;">
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/102980865_zt5o1FGFQ3aXGvX.png" style="height:auto; margin:15px; float:left" width="525" height="646.151"><br><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;About:</strong></span><br>
-            <span style="font-size: 24px;"> Hydro was another experiment of the lab, using a refined version of the liquid previously used to revive other experimental subjects as well as in combination with equipment for advanced water control he was made from a cat skeleton. The test subject behaved themselves calmly and was obedient to given commands, so the experiment was deemed successful. It also seemed Hydro has no recollection of his past life before revival which eased his transition to working for the lab. Hydro is often seen unemotional with hollow expression.
-            </span>
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/102980865_zt5o1FGFQ3aXGvX.png" style="height:auto; margin:15px; float:left" width="525" height="646.151"><br><span style='font-family: "courier new ", courier; font-size: 36px;'><strong>&nbsp;{{ about.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ about.desc }} </span>
           <br></td></tr></tbody></table>
           <table style="border: 1px solid transparent;"><tbody><tr><td style="width: 100%; text-align: left;"><br>
             <span style='font-family: "courier new ", courier; font-size: 36px;'>
             <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/104751394_C00eUUVy7cDpxG0.png" style="height:auto; margin:15px; float:right" width="491.989" height="491.989">
-            <strong>&nbsp;Powers:</strong></span><br>
-            <span style="font-size: 24px;"> Hydro was equipped with outer worldly technology to be able to control water. He can link to nearby water sources, allowing to drain water from them. The water flows out from indentation on the neck and wraps around like a collar. Lab mainly used him as portable water dispenser so most of his work was within the building rather than venturing outside it. It is also known that if the water source he links to gets contaminated he will also get contaminated, so the water source must remain clean at all times. </span><br><br></td></tr>
-          </tbody></table>
-          <br><span style="font-size: 24px;">Design notes:</span><br>
-          <span style="font-size: 24px;">uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</span><br>
-          <span style="font-size: 24px;">a ref will appear here in next 2 months, trust</span><br>
-          <img src="" alt="no image yet" class="fr-fic fr-dib" width="799.375" height="558.352">
-          <br><br><br><br><br>
+            <strong>&nbsp;{{ powers.title }}</strong></span><br>
+            <span style="font-size: 24px;"> {{ powers.desc }}</span><br><br></td></tr>
+            </tbody></table>
         </tr>
       </tbody></table>
       <br><br>
