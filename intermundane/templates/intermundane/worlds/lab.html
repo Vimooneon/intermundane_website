@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
+  <title>{{world.title}}</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -22,7 +22,7 @@
     </div>
     {% if user.access_level.level < 2 %}
         <p>{% trans "Seems to access further data you need to be part of lab personell, try <em>work-at-lab</em> if you want to read further" %}</p>
-    {% endif %}
+    {% else %}
     <div>
         <h2>Chapter 2, The initialization</h2>
         <p>
@@ -31,6 +31,8 @@
             You may also ask 3nc0d3d for any additional info you may need.
         </p>
     </div>
+    {% endif %}
+    {% if user.access_level.level > 2 %}
     <div>
         <h2>Chapter 3, The outer-worldly technology</h2>
         <p>Aliens? Don't be silly, that's not our field of research<br>
@@ -53,6 +55,6 @@ And there was another creation, a sort of bio-weapon that even most of the perso
 [Toxin]
         </p>
     </div>
-
+    {% endif %}
     </section>
 </body>

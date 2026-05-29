@@ -6,3 +6,4 @@ intermundane/migrations
 intermundane/management/commands
 mysite/settings.py
 mysite/__pycache__
+backup.json

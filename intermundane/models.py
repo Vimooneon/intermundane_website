@@ -49,19 +49,25 @@ class ContentBlock(models.Model):
 
 class UserProgress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    key = models.ForeignKey(ContentBlock, on_delete=models.CASCADE)
+    content_key = models.ForeignKey(ContentBlock, on_delete=models.CASCADE)
     unlocked = models.DateTimeField(auto_now_add=True)
     class Meta:
-        unique_together = ('user', 'key',)
+        unique_together = ('user', 'content_key',)
     def __str__(self):
-        return self.user + " -> " + self.key
+        return self.user.username + " -> " + self.content_key.key
 
 class Response(TranslatableModel):
+    ACTION_TYPES = [
+        ("say", "Say"),
+        ("redirect", "Redirect"),
+        ("promote", "Promote"),
+        ("unlock", "Unlock"),
+    ]
     user_input = models.CharField(max_length=255, unique=True)
     translations = TranslatedFields(
         response = models.CharField(max_length=255)
     )
-    action = models.CharField(max_length=255)
+    action = models.CharField(max_length=255, choices=ACTION_TYPES)
     access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, null=True, blank=True)
     content_block = models.ForeignKey(ContentBlock, on_delete=models.CASCADE, null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
@@ -71,11 +77,16 @@ class Response(TranslatableModel):
 
 
 class AuditLog(models.Model):
-    action = models.CharField(max_length=255, unique=True)
+    SOURCE_TYPES = [
+        ("arg", "ARG"),
+        ("admin panel", "Admin panel"),
+    ]
+    action = models.CharField(max_length=255)
+    source = models.CharField(max_length=255, choices=SOURCE_TYPES)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.user + " -> " + self.action + " ("+str(self.timestamp)+")"
+        return self.user.username + " -> " + self.action + " ("+str(self.timestamp)+")"
 
 class CharacterContentBlock(TranslatableModel):
     BLOCK_TYPES = [
@@ -112,6 +123,7 @@ class CharacterContentBlock(TranslatableModel):
 class WorldContentBlock(TranslatableModel):
     BLOCK_TYPES = [
         ("about", "About"),
+        ("chapter", "Chapter"),
     ]
 
     world = models.ForeignKey(

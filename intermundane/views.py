@@ -6,11 +6,7 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import World, Character, WorldContentBlock
 
-def index(request):
-    return render(request, "intermundane/index.html")
 
-    #template = loader.get_template("intermundane/intermundane.html")
-    #return HttpResponse(template.render())
 
 def worlds(request):
     user_level=0
@@ -27,7 +23,7 @@ def world_detail(request, slug):
     if request.user.is_authenticated:
         user_level = request.user.access_level.level
     if(accessLevel<=user_level):
-        character_list = Character.objects.filter(access_level__level__lte=user_level, world=world)
+        character_list = Character.objects.filter(access_level__level__lte=user_level, world=world, is_deleted=False)
         world_description = world.story_blocks.get(world=world, block_type="about")
         return render(request, "intermundane/worlds/"+slug+".html", {"world": world_description, "characters": character_list})
     return render(request, "intermundane/no-such-page.html", {"error": "you dont have necessary permission level"})
@@ -36,8 +32,8 @@ def characters(request):
     user_level=0
     if request.user.is_authenticated:
         user_level = request.user.access_level.level
-    world_list = World.objects.filter(access_level__level__lte=user_level)
-    character_list = Character.objects.filter(access_level__level__lte=user_level)
+    world_list = World.objects.filter(access_level__level__lte=user_level, is_deleted=False)
+    character_list = Character.objects.filter(access_level__level__lte=user_level, is_deleted=False)
     world_descriptions = WorldContentBlock.objects.filter(block_type="about", world__in = world_list)
     return render(request, "intermundane/characters.html", {"worlds": world_descriptions, "characters": character_list})
 
@@ -45,7 +41,7 @@ def character_detail(request, slug):
     user_level=0
     if request.user.is_authenticated:
         user_level = request.user.access_level.level
-    character = get_object_or_404(Character, slug=slug)
+    character = get_object_or_404(Character, slug=slug, is_deleted=False)
     accessLevel = character.access_level.level
 
     character_name =  character.content_blocks.get(character=character, block_type="name")

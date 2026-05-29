@@ -20,7 +20,7 @@
     </section>
     <section class="code">
         <h2>{% trans "Found a code?" %}</h2>
-        <form id="submit-form" action="{% url 'found_code' %}" method="post">
+        <form id="submit-form" method="post">
             {% csrf_token %}
             <div class="input-code">
                 <input type="text" class="form-control" id="code" name="code">
@@ -38,7 +38,7 @@
         </div>
         <div>
             {% if response %}
-                {% trans response %}
+                {{ response }}
             {% endif %}
         </div>
     </section>
