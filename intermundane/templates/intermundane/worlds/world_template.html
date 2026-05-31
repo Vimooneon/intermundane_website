@@ -2,9 +2,13 @@
 {% include 'intermundane/navbar.html' %}
 
 <section>
-    <div class="center"><h1>{{ world.title }}</h1></div>
+    <div class="center lore-chapter"><h1>{{ world.title }}</h1>
+    {% if title %}
+    <h3>{{ title.desc }}</h3>
+    {% endif %}
+    </div>
     <section>
-        <div id="character_list">
+        <div id="character_list" class="lore-chapter">
             <h2>{% trans "Characters" %}:</h2>
             {% if characters %}
             <ul class="no_style">
@@ -16,9 +20,12 @@
             {% trans "Seems your access level doesnt grant such information" %}
             {% endif %}
         </div>
-        <div>
+
+
+
+    <!--    <div class="lore-chapter">
             <h2>{% trans "General description" %}:</h2>
             <p>{{ world.desc }}</p>
-        </div>
+        </div> -->
     </section>
 </section>

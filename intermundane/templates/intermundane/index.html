@@ -19,6 +19,7 @@
         </p></div>
     </section>
     <section class="code">
+        {% if user.is_authenticated %}
         <h2>{% trans "Found a code?" %}</h2>
         <form id="submit-form" method="post">
             {% csrf_token %}
@@ -28,9 +29,7 @@
             </div>
         </form>
         <div class="error">
-            {% if error == 'need-login' %}
-                <p>{% trans 'You need to login to progress this arg!' %}</p>
-            {% elif error == 'no-code' %}
+            {% if error == 'no-code' %}
                 <p>{% trans 'Such code does not exist' %}</p>
             {% elif error == 'early-code' %}
                 <p>{% trans 'Huh, seems you are early' %}</p>
@@ -41,6 +40,9 @@
                 {{ response }}
             {% endif %}
         </div>
+        {% else %}
+        <h2>{% trans "You need to login to progress this arg!" %}</h2>
+        {% endif %}
     </section>
 </body>
 

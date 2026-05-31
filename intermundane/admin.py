@@ -17,6 +17,7 @@ class CharacterContentBlockAdmin(TranslatableAdmin):
         "id",
         "character",
         "block_type",
+        "title",
         "sequence",
     )
     search_fields = (
@@ -51,7 +52,8 @@ class WorldContentBlockAdmin(TranslatableAdmin):
     list_display = (
         "id",
         "world",
-        "block_type",
+        "title",
+        "sequence",
     )
 
     search_fields = (

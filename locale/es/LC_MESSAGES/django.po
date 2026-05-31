@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-27 19:57+0000\n"
+"POT-Creation-Date: 2026-05-31 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,9 +19,92 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
 "1 : 2;\n"
 
+#: intermundane/templates/intermundane/admin_panel.html:76
+#: intermundane/templates/intermundane/admin_panel.html:102
+#: intermundane/templates/intermundane/profile.html:20
+msgid "Admin panel"
+msgstr "Panel de administración"
+
+#: intermundane/templates/intermundane/admin_panel.html:77
+msgid "Logged in as"
+msgstr "Iniciado sesión como"
+
+#: intermundane/templates/intermundane/admin_panel.html:79
+msgid "Currently viewing"
+msgstr "Estás viendo"
+
+#: intermundane/templates/intermundane/admin_panel.html:82
+msgid "Latest logs"
+msgstr "Últimos registros"
+
+#: intermundane/templates/intermundane/admin_panel.html:85
+msgid "User logs"
+msgstr "Registros de usuarios"
+
+#: intermundane/templates/intermundane/admin_panel.html:88
+msgid "Manage Users"
+msgstr "Gestionar usuarios"
+
+#: intermundane/templates/intermundane/admin_panel.html:98
+#: intermundane/templates/intermundane/admin_panel.html:133
+#: intermundane/templates/intermundane/admin_panel.html:163
+#: intermundane/templates/registration/login.html:21
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: intermundane/templates/intermundane/admin_panel.html:99
+msgid "Source"
+msgstr "Fuente"
+
+#: intermundane/templates/intermundane/admin_panel.html:100
+msgid "All"
+msgstr "Todo"
+
+#: intermundane/templates/intermundane/admin_panel.html:101
+msgid "ARG"
+msgstr "ARG"
+
+#: intermundane/templates/intermundane/admin_panel.html:104
+msgid "Action"
+msgstr "Acción"
+
+#: intermundane/templates/intermundane/admin_panel.html:105
+msgid "Timestamp"
+msgstr "Fecha y hora"
+
+#: intermundane/templates/intermundane/admin_panel.html:134
+msgid "Actions"
+msgstr "Acciones"
+
+#: intermundane/templates/intermundane/admin_panel.html:144
+msgid "See actions"
+msgstr "Ver acciones"
+
+#: intermundane/templates/intermundane/admin_panel.html:164
+#: intermundane/templates/intermundane/profile.html:17
+msgid "Level"
+msgstr "Nivel"
+
+#: intermundane/templates/intermundane/admin_panel.html:165
+msgid "Keys"
+msgstr "Claves"
+
+#: intermundane/templates/intermundane/admin_panel.html:178
+msgid "Ban"
+msgstr "Prohibición"
+
+#: intermundane/templates/intermundane/admin_panel.html:180
+msgid "Unban"
+msgstr "Desbloquear"
+
+#: intermundane/templates/intermundane/admin_panel.html:204
+#: intermundane/templates/intermundane/admin_panel.html:244
+msgid "This user is banned"
+msgstr "Este usuario ha sido expulsado"
+
 #: intermundane/templates/intermundane/characters.html:16
 #: intermundane/templates/intermundane/navbar.html:7
-#: intermundane/templates/intermundane/worlds/world_template.html:6
+#: intermundane/templates/intermundane/worlds/world_template.html:8
 msgid "Characters"
 msgstr "Personajes"
 
@@ -69,16 +152,12 @@ msgstr "Perfil"
 msgid "Name"
 msgstr "Nombre"
 
-#: intermundane/templates/intermundane/profile.html:17
-msgid "Level"
-msgstr "Nivel"
-
 #: intermundane/templates/intermundane/profile.html:18
 msgid "Logout"
 msgstr "Cerrar sesión"
 
 #: intermundane/templates/intermundane/register.html:18
-#: intermundane/templates/intermundane/register.html:45
+#: intermundane/templates/intermundane/register.html:44
 msgid "Register"
 msgstr "Registrate"
 
@@ -86,11 +165,11 @@ msgstr "Registrate"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: intermundane/templates/intermundane/register.html:43
+#: intermundane/templates/intermundane/register.html:42
 msgid "Already have account?"
 msgstr "¿Ya tienes una cuenta?"
 
-#: intermundane/templates/intermundane/register.html:43
+#: intermundane/templates/intermundane/register.html:42
 msgid "Login instead"
 msgstr "Iniciar sesion"
 
@@ -102,11 +181,19 @@ msgstr "Lugares importantes de la historia"
 msgid "Read more"
 msgstr "Más información"
 
-#: intermundane/templates/intermundane/worlds/world_template.html:14
+#: intermundane/templates/intermundane/worlds/lab.html:23
+msgid ""
+"Seems to access further data you need to be part of lab personell, try "
+"<em>work-at-lab</em> if you want to read further"
+msgstr ""
+"Parece que, para acceder a más datos, hay que formar parte del personal del laboratorio."
+"Prueba con <em>work-at-lab</em> si quieres saber más."
+
+#: intermundane/templates/intermundane/worlds/world_template.html:16
 msgid "Seems your access level doesnt grant such information"
 msgstr "Parece que tu nivel de acceso no te permite consultar esa información"
 
-#: intermundane/templates/intermundane/worlds/world_template.html:16
+#: intermundane/templates/intermundane/worlds/world_template.html:20
 msgid "General description"
 msgstr "Descripción general"
 
@@ -114,10 +201,6 @@ msgstr "Descripción general"
 #: intermundane/templates/registration/login.html:32
 msgid "Login"
 msgstr "Iniciar sesion"
-
-#: intermundane/templates/registration/login.html:21
-msgid "Username"
-msgstr "Nombre de usuario"
 
 #: intermundane/templates/registration/login.html:24
 msgid "Password"

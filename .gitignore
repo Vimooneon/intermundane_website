@@ -7,3 +7,4 @@ intermundane/management/commands
 mysite/settings.py
 mysite/__pycache__
 backup.json
+locale/es/LC_MESSAGES/django.po

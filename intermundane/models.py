@@ -82,7 +82,7 @@ class AuditLog(models.Model):
         ("admin panel", "Admin panel"),
     ]
     action = models.CharField(max_length=255)
-    source = models.CharField(max_length=255, choices=SOURCE_TYPES)
+    source = models.CharField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
@@ -93,28 +93,31 @@ class CharacterContentBlock(TranslatableModel):
         ("name", "Name"),
         ("about", "About"),
         ("powers", "Powers"),
+        ("chapter", "Chapter"),
+        ("youtube", "Youtube"),
     ]
     character = models.ForeignKey(
         Character,
         on_delete=models.CASCADE,
-        related_name="content_blocks"
+        related_name="story_blocks"
     )
     block_type = models.CharField(
         max_length=50,
         choices=BLOCK_TYPES
     )
-    content_key = models.ForeignKey(
+    content_block = models.ForeignKey(
         ContentBlock,
         on_delete=models.SET_NULL,
         null=True,
         blank=True
     )
     sequence = models.IntegerField(default=0)
-    required_access_level = models.IntegerField(default=0)
+    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     translations = TranslatedFields(
         title=models.CharField(max_length=255),
         desc=models.TextField()
     )
+    image_link = models.CharField(max_length=255, null=True, blank=True)
     class Meta:
         ordering = ["sequence"]
 
@@ -124,6 +127,7 @@ class WorldContentBlock(TranslatableModel):
     BLOCK_TYPES = [
         ("about", "About"),
         ("chapter", "Chapter"),
+        ("title", "Title"),
     ]
 
     world = models.ForeignKey(
@@ -143,11 +147,12 @@ class WorldContentBlock(TranslatableModel):
         default="about"
     )
     sequence = models.IntegerField(default=0)
-    required_access_level = models.IntegerField(default=0)
+    access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     translations = TranslatedFields(
         title=models.CharField(max_length=255),
         desc=models.TextField()
     )
+    image_link = models.CharField(max_length=255, null=True, blank=True)
     class Meta:
         ordering = ["sequence"]
 
