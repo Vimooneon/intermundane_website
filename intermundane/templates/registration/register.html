@@ -30,7 +30,15 @@
         {% for field, errors in form.errors.items %}
             <ul class="no_style">
                 {% for error in errors %}
-                    <li class="error">{{ field }}: {{ error }}</li>
+                    <li class="error">
+                        {% if field == "password1" %}
+                            {%trans "Password" %}
+                        {% elif field == "password2" %}
+                            {%trans "Confirm" %}
+                        {% else %}
+                            {%trans "Username" %}
+                        {% endif %}
+                        : {{ error }}</li>
                 {% endfor %}
             </ul>
         {% endfor %}
