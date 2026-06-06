@@ -13,13 +13,17 @@
     {% include 'intermundane/navbar.html' %}
 
     <section class="about">
-        <h2>{% trans "Info" %}</h2>
+        <h1>{% trans "Info" %}</h1>
         <div id="about-info"><p>
         {% blocktrans %}This website is an arg - an interactive network narrative used to deliver a story that may be altered by players actions.<br>Throughout the website it is possible to find secret passwords that can be entered in the Box below.{% endblocktrans %}
         </p></div>
     </section>
     <section class="code">
         {% if user.is_authenticated %}
+        <div style="position:fixed;bottom:5px;right:5px;z-index:-1;width:640px;height:640px; display:flex; align-items:center; justify-content:center; max-width: 30%;">
+            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/91528537_SW1sKtGV54TtlzI.png" class="tooltipster" title="{{ response }}" style="height:auto;max-width:30%;position:fixed;bottom:5px;right:5px;z-index:3;" alt="no-image-found" width="640" height="640">
+        </div>
+
         <h2>{% trans "Found a code?" %}</h2>
         <form id="submit-form" method="post">
             {% csrf_token %}
@@ -32,7 +36,7 @@
             {% if error == 'no-code' %}
                 <p>{% trans 'Such code does not exist' %}</p>
             {% elif error == 'early-code' %}
-                <p>{% trans 'Huh, seems you are early' %}</p>
+                <p>{% trans 'The following code requires higher level of clearance' %}</p>
             {% endif %}
         </div>
         <div>

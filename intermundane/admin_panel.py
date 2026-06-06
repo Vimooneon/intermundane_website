@@ -4,7 +4,9 @@ from django.contrib.auth.decorators import login_required
 
 from .models import User, AuditLog, AccessLevel, UserProgress, ContentBlock
 
+# functionality for admin panel interactions
 
+# only returns panel page if user is staff(one of roles in django abstract user class)
 @login_required
 def panel(request):
     if not request.user.is_staff:
@@ -16,6 +18,7 @@ def panel(request):
     keys = ContentBlock.objects.all()
     return render(request, "intermundane/admin_panel.html", {"logs": logs, "users": users, "levels": levels, "progress": progress, "keys": keys})
 
+# allows staff to change their own level, allows super_user (one of roles in django abstract user class equivalent to admin) to change anyone's level
 def set_level(request):
     if not request.user.is_staff:
         return redirect("index")
@@ -35,7 +38,7 @@ def set_level(request):
         log.save()
     return redirect('admin_panel')
 
-
+# allows staff to delete content keys from themselves, allows super_user/admin to delete content keys from anyone
 def remove_key(request):
     if not request.user.is_staff:
         return redirect("index")
@@ -57,6 +60,7 @@ def remove_key(request):
         return redirect('admin_panel')
     return redirect('admin_panel')
 
+# allows staff to unlock content keys for themselves, allows super_user/admin to unlock content keys for anyone
 def add_key(request):
     if not request.user.is_staff:
         return redirect("index")
@@ -80,7 +84,8 @@ def add_key(request):
         log.save()
     return redirect('admin_panel')
 
-def ban_user(request): #also unban user
+# allows super_user/admin to ban and also unban users that are not also super_user/admin (also prevents banning themselves)
+def ban_user(request):
     if not request.user.is_staff:
         return redirect("index")
     if request.method == "POST":

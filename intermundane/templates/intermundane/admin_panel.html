@@ -7,70 +7,11 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <script src="{% static 'admin_panel.js' %}" defer></script>
 </head>
 {% load i18n %}
 <body class="bg-dark">
     {% include 'intermundane/navbar.html' %}
-
-    <script>
-        function showTable(){
-            const val = document.getElementById("panel-select").value;
-            if (val=="latest-logs"){
-                document.getElementById("latest-logs").style.display = "block";
-                document.getElementById("user-logs").style.display = "none";
-                document.getElementById("user-manage").style.display = "none";
-            }else if (val=="user-logs"){
-                document.getElementById("latest-logs").style.display = "none";
-                document.getElementById("user-logs").style.display = "block";
-                document.getElementById("user-manage").style.display = "none";
-            }else if (val=="user-manage"){
-                document.getElementById("latest-logs").style.display = "none";
-                document.getElementById("user-logs").style.display = "none";
-                document.getElementById("user-manage").style.display = "block";
-            }
-        }
-        function showActions(username){
-            if (document.getElementById("user_actions_"+username).style.display == "none"){
-                document.getElementById("user_actions_"+username).style.display = "block";
-            }else{
-                document.getElementById("user_actions_"+username).style.display = "none";
-            }
-        }
-
-        function filterLogs() {
-            const usernameFilter = document.getElementById("name_filter").value.trim().toLowerCase();
-            const sourceFilter = document.getElementById("source_filter").value.trim().toLowerCase();
-            const actionFilter = document.getElementById("action_filter").value.trim().toLowerCase();
-            const timestampFilter = document.getElementById("timestamp_filter").value.trim().toLowerCase();
-
-            const rows = document.querySelectorAll("#latest-logs-table tbody tr");
-
-            rows.forEach((row) => {
-
-                const username = row.querySelector(".username").textContent.trim().toLowerCase();
-
-                const source = row.querySelector(".source").textContent.trim().toLowerCase();
-
-                const action = row.querySelector(".action").textContent.trim().toLowerCase();
-
-                const timestamp = row.querySelector(".timestamp").textContent.trim().toLowerCase();
-
-                const usernameMatch = username.includes(usernameFilter);
-
-                const sourceMatch = sourceFilter === "" || source === sourceFilter;
-
-                const actionMatch = action.includes(actionFilter);
-
-                const timestampMatch = timestamp.includes(timestampFilter);
-
-                if (usernameMatch && sourceMatch && actionMatch && timestampMatch) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            });
-        }
-    </script>
 
     <section class="profile profile-info">
         <h1 class="center">{% trans "Admin panel" %}</h1>
@@ -81,9 +22,6 @@
                 <option value="latest-logs">
                     {% trans "Latest logs" %}
                 </option>
-                <option value="user-logs">
-                    {% trans "User logs" %}
-                </option>
                 <option value="user-manage" selected>
                     {% trans "Manage Users" %}
                 </option>
@@ -91,18 +29,18 @@
         </div>
     </section>
 
-    <div class="audit-log table-form" id="latest-logs" style="display:none;">
+    <div class="audit-log table-form hidden" id="latest-logs">
         <table id="latest-logs-table">
             <thead>
             <tr>
-                <th><h3>{% trans "Username" %}</h3> <input id="name_filter" onkeyup="filterLogs()" class="form-control bg-darker" placeholder="Filter"></th>
-                <th><h3>{% trans "Source" %}</h3> <select id="source_filter" onchange="filterLogs()" class="form-select bg-darker">
+                <th>{% trans "Username" %} <input id="name_filter" onkeyup="filterLogs()" class="form-control bg-darker" placeholder="Filter"></th>
+                <th>{% trans "Source" %} <select id="source_filter" onchange="filterLogs()" class="form-select bg-darker">
                     <option value="" selected>{% trans "All" %}</option>
                     <option value="arg">{% trans "ARG" %}</option>
                     <option value="admin panel">{% trans "Admin panel" %}</option>
                 </select></th>
-                <th><h3>{% trans "Action" %}</h3> <input id="action_filter" type="text" onkeyup="filterLogs()" class="form-control bg-darker" placeholder="Filter"></th>
-                <th><h3>{% trans "Timestamp" %}</h3> <input id="timestamp_filter" type="text" onkeyup="filterLogs()" class="form-control bg-darker" placeholder="Filter"></th>
+                <th>{% trans "Action" %} <input id="action_filter" type="text" onkeyup="filterLogs()" class="form-control bg-darker" placeholder="Filter"></th>
+                <th>{% trans "Timestamp" %} <input id="timestamp_filter" type="text" onkeyup="filterLogs()" class="form-control bg-darker" placeholder="Filter"></th>
             </tr>
             </thead>
             <tbody>
@@ -126,43 +64,13 @@
         </table>
     </div>
 
-    <div class="audit-log" id="user-logs" style="display:none;">
-        <table id="user-logs-table">
-            <thead>
-            <tr>
-                <th><h3>{% trans "Username" %}</h3></th>
-                <th><h3>{% trans "Actions" %}</h3></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for user in users %}
-            <tr>
-                <td>
-                    <h3>{{ user.username }}</h3>
-                </td>
-                <td>
-                    (<a onclick='showActions("{{user.username}}")'>{% trans "See actions" %}</a>)
-                    <ul style="display:none;" id="user_actions_{{user.username}}" class="no_style">
-                        {% for log2 in logs %}
-                            {% if log2.user == user and log2.source == "admin panel" %}
-                            <li class="entry">{{ log2.action }} [{{ log2.timestamp }}]</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
     <div class="audit-log table-form" id="user-manage">
         <table id="user-manage-table">
             <thead>
                 <tr>
-                    <th><h3>{% trans "Username" %}</h3></th>
-                    <th><h3>{% trans "Level" %}</h3></th>
-                    <th><h3>{% trans "Keys" %}</h3></th>
+                    <th>{% trans "Username" %}</th>
+                    <th>{% trans "Level" %}</th>
+                    <th>{% trans "Keys" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -188,7 +96,7 @@
                     <form action="{% url 'set_level' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="userm" value={{user2.username}}>
-                        <select id="level-select" name="level" onchange="this.form.submit()" class="form-select bg-dark">
+                        <select name="level" onchange="this.form.submit()" class="form-select bg-dark">
                             {% for level in levels %}
                                 <option value="{{ level.level }}"
                                     {% if level == user2.access_level %}selected{% endif %}>
@@ -229,7 +137,7 @@
                                 <form action="{% url 'add_key' %}" method="post">
                                     {% csrf_token %}
                                     <input type="hidden" name="userm" value={{user2.username}}>
-                                    <select id="progress-select" name="content_key" onchange="this.form.submit()" class="form-select bg-dark">
+                                    <select name="content_key" onchange="this.form.submit()" class="form-select bg-dark">
                                         {% for item2 in keys %}
                                             <option value="{{ item2.key }}">
                                                 {{ item2.key }}

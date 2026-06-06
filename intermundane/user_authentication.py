@@ -1,14 +1,18 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm
 from .models import AccessLevel
 
+# handles user registration, logout and profile page
+
+# returns profile view only if user has logged in, otherwise redirects to login page
 @login_required
 def profile(request):
     return render(request, "intermundane/profile.html")
 
+# registration functionality, is used over default because of custom access_level field and not requiring email field
 def register_view(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
@@ -20,7 +24,11 @@ def register_view(request):
             return redirect("profile")
     else:
         form = RegisterForm()
-    return render(request, "intermundane/register.html", {"form": form})
+    return render(request, "registration/register.html", {"form": form})
+
+'''
+# an example of how could login functionality be implemented
+# is not needed because django has a default login implementation
 
 def login_view(request):
     if request.method == "POST":
@@ -32,7 +40,9 @@ def login_view(request):
             return redirect("profile")
         return render(request, "intermundane/login.html", {"error":"incorrect password or username"})
     return render(request, "intermundane/login.html")
+'''
 
+# logout functionality
 def logout_view(request):
     logout(request)
     return redirect("index")

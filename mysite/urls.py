@@ -18,17 +18,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+# imports django libraries for translation, admin and user authentication
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path("admin/", admin.site.urls),
     path("accounts/", include("django.contrib.auth.urls")),
 ]
 
-#
-#   path("", include("intermundane.urls")),
-#   path("intermundane/", include("intermundane.urls")),
-#
-
+# enables translation of all pages from the website
 from django.conf.urls.i18n import i18n_patterns
 urlpatterns += i18n_patterns(
     path('', include('intermundane.urls')),

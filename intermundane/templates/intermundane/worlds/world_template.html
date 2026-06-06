@@ -1,31 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{world.title}}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
 {% load i18n %}
-{% include 'intermundane/navbar.html' %}
-
-<section>
-    <div class="center lore-chapter"><h1>{{ world.title }}</h1>
-    {% if title %}
-    <h3>{{ title.desc }}</h3>
-    {% endif %}
-    </div>
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
     <section>
-        <div id="character_list" class="lore-chapter">
-            <h2>{% trans "Characters" %}:</h2>
-            {% if characters %}
-            <ul class="no_style">
-                {% for character in characters %}
-                    <li><a href="{% url 'characters' %}/{{ character }}"><img class="navbar-image" src="{{ character.image_link }}">{{ character }}</a></li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            {% trans "Seems your access level doesnt grant such information" %}
-            {% endif %}
+        <div class="center title world"><h1>{{ world.title }}</h1>
+        {% if title %}
+        <h3>{{ title.desc }}</h3>
+        {% endif %}
         </div>
-
-
-
-    <!--    <div class="lore-chapter">
-            <h2>{% trans "General description" %}:</h2>
-            <p>{{ world.desc }}</p>
-        </div> -->
+        <section class="world">
+            <div id="character_list" class="lore-chapter">
+                <h2>{% trans "Characters" %}:</h2>
+                {% if characters %}
+                <ul class="no_style">
+                    {% for character in characters %}
+                        <li><a href="{% url 'characters' %}/{{ character }}"><img class="navbar-image" src="{{ character.image_link }}" alt="no-image">{{ character }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                {% trans "Seems your access level doesnt grant such information" %}
+                {% endif %}
+            </div>
+        </section>
     </section>
-</section>
+    <section class="world">
+        {% for lore_item in lore %}
+        <div class="lore-chapter">
+            <h2 {% if lore_item.title == 'there-is-a-warrior' %}class="hidden-text"{% endif %}>{{lore_item.title}}</h2>
+            <p {% if lore_item.title == 'there-is-a-warrior' %}class="hidden-text"{% endif %}>{{lore_item.desc}}</p>
+        </div>
+        {% endfor %}
+    </section>
+</body>

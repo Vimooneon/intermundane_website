@@ -13,31 +13,17 @@
     {% include 'intermundane/navbar.html' %}
     {% include 'intermundane/characters/youtube_chibi.html' %}
 
-    <section class="character">
-        <div class="character-title uppercase"> <strong class="large-screen">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong> <strong>{{ name.title }}</strong><img src="{{ name.image_link }}" class="fa-bounce character-mini-image"></div><br>
+    <div class="character">
+        <div class="character-title uppercase"> <strong class="large-screen">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong> <strong>{{ name.title }}</strong><img src="{{ name.image_link }}" alt="no-image" class="fa-bounce character-mini-image"></div><br>
         <div class="character-subtitle">{{ name.desc }}</div><br>
 
         <table>
             <tbody>
-                <tr>
-                    <td>
-                        <img src="{{ about.image_link }}">
-                        <span class="character-chapter-title"><strong>&nbsp;{{ about.title }}</strong></span><br>
-                        <span> {{ about.desc }} </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="{{ powers.image_link }}">
-                        <span class="character-chapter-title"><strong>&nbsp;{{ powers.title }}</strong></span><br>
-                        <span> {{ powers.desc }}</span>
-                    </td>
-                </tr>
                 {% for lore_item in lore %}
                 <tr>
-                    <td>
+                    <td class="lore-chapter">
                         {% if lore_item.image_link %}
-                            <img src="{{ lore_item.image_link }}">
+                            <img src="{{ lore_item.image_link }}" alt="no-image">
                         {% endif %}
                         <span class="character-chapter-title"><strong>{{ lore_item.title }}</strong></span><br>
                         <span>{{ lore_item.desc }}</span>
@@ -46,5 +32,5 @@
                 {% endfor %}
             </tbody>
         </table>
-    </section>
+    </div>
 </body>

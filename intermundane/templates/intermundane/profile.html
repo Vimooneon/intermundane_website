@@ -11,13 +11,12 @@
 {% load i18n %}
 <body class="bg-dark">
     {% include 'intermundane/navbar.html' %}
-
-    <section class="profile profile-info">
+    <div class="profile profile-info">
         <div>{% trans "Name" %}: {{ user.username }}</div>
         <div>{% trans "Level" %}: {{ user.access_level }}</div>
         <div><a href="{% url 'logout_view' %}" class="btn btn-primary">{% trans "Logout" %}</a></div>
         {% if user.is_staff %}
         <div><a href="{% url 'admin_panel' %}" class="btn btn-primary">{% trans "Admin panel" %}</a></div>
         {% endif %}
-    </section>
+    </div>
 </body>

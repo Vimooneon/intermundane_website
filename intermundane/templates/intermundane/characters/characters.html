@@ -20,14 +20,11 @@
             <ul class="no_style">
                 {% for character in characters %}
                     {% if character.world == world.world %}
-                    <li><a href="{% url 'characters' %}/{{ character }}"><img class="navbar-image" src="{{ character.image_link }}">{{ character }}</a></li>
+                    <li><a href="{% url 'characters' %}/{{ character }}"><img class="navbar-image" src="{{ character.image_link }}" alt="no-image">{{ character }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
         </div>
         {% endfor %}
     </div>
-
-
-
 </body>

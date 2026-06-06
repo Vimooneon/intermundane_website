@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worlds</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
+    {% load i18n %}
+    <section id="lore" class="lore bg-dark">
+        <div class="center">
+            <h1>{% trans "The page you were looking for couldn't be accessed" %}</h1>
+            {% if error == "no-access-level" %}
+            <h2 class="error">{% trans "error" %}: {% trans "you dont have necessary permission level" %}</h2>
+            {% else %}
+            <h2 class="error">{% trans "error" %}: {% trans "such page does not exist" %}</h2>
+            {% endif %}
+        </div>
+    </section>
+</body>

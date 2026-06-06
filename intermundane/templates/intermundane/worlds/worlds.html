@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worlds</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'global_intermundane.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="bg-dark">
+    {% include 'intermundane/navbar.html' %}
+    {% load i18n %}
+    <section id="lore" class="lore bg-dark">
+        <h1 class="title">{% trans "Lore significant locations" %}</h1>
+        <div class="lore-grid">
+        {% for world in worlds %}
+            <div class="lore-card" id="lore-{{ world.world }}">
+                <div class="background-overlay"></div>
+                <div class="lore-card-content">
+                    <h2>{{ world.title }}</h2>
+                    <p>{{ world.desc }}</p>
+                    <a href="{% url 'worlds' %}/{{ world.world }}" class="btn btn-primary">{% trans "Read more" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+</body>

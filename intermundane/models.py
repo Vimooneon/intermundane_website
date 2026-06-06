@@ -96,6 +96,12 @@ class CharacterContentBlock(TranslatableModel):
         ("chapter", "Chapter"),
         ("youtube", "Youtube"),
     ]
+    UNLOCK_TYPES = [
+        ("gte", "Greater/equal level"),
+        ("e", "Equal level"),
+        ("lt", "Less level"),
+        ("k", "Content block"),
+    ]
     character = models.ForeignKey(
         Character,
         on_delete=models.CASCADE,
@@ -103,7 +109,13 @@ class CharacterContentBlock(TranslatableModel):
     )
     block_type = models.CharField(
         max_length=50,
-        choices=BLOCK_TYPES
+        choices=BLOCK_TYPES,
+        default="chapter"
+    )
+    unlock_type = models.CharField(
+        max_length=50,
+        choices=UNLOCK_TYPES,
+        default="gte"
     )
     content_block = models.ForeignKey(
         ContentBlock,
@@ -129,7 +141,12 @@ class WorldContentBlock(TranslatableModel):
         ("chapter", "Chapter"),
         ("title", "Title"),
     ]
-
+    UNLOCK_TYPES = [
+        ("gte", "Greater/equal level"),
+        ("e", "Equal level"),
+        ("lt", "Less level"),
+        ("k", "Content block"),
+    ]
     world = models.ForeignKey(
         World,
         on_delete=models.CASCADE,
@@ -144,7 +161,12 @@ class WorldContentBlock(TranslatableModel):
     block_type = models.CharField(
         max_length=50,
         choices=BLOCK_TYPES,
-        default="about"
+        default="chapter"
+    )
+    unlock_type = models.CharField(
+        max_length=50,
+        choices=UNLOCK_TYPES,
+        default="gte"
     )
     sequence = models.IntegerField(default=0)
     access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
