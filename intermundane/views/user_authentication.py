@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 
-from .forms import RegisterForm
-from .models import AccessLevel
+from ..forms import RegisterForm
+from ..models import AccessLevel
 
 # handles user registration, logout and profile page
 

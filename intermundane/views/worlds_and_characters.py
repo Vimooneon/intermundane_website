@@ -3,7 +3,7 @@ from django.db.models import Q
 
 # django views correlate to the controller class in MVC pattern, meanwhile the MVC views are stored as templates
 
-from .models import World, Character, WorldContentBlock, UserProgress
+from ..models import World, Character, WorldContentBlock, UserProgress
 
 # general worlds page navigated from navbar
 def worlds(request):

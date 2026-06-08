@@ -1,16 +1,16 @@
 from django.urls import path
 
-from . import views, user_authentication, progress, admin_panel
+from .views import worlds_and_characters, user_authentication, progress, admin_panel
 
 # links url paths to django views
 
 urlpatterns = [
     path("", progress.index, name="index"),
 
-    path("worlds", views.worlds, name="worlds"),
-    path("worlds/<slug:slug>", views.world_detail, name="world_detail"),
-    path("characters", views.characters, name="characters"),
-    path("characters/<slug:slug>", views.character_detail, name="character_detail"),
+    path("worlds", worlds_and_characters.worlds, name="worlds"),
+    path("worlds/<slug:slug>", worlds_and_characters.world_detail, name="world_detail"),
+    path("characters", worlds_and_characters.characters, name="characters"),
+    path("characters/<slug:slug>", worlds_and_characters.character_detail, name="character_detail"),
 
     path("profile", user_authentication.profile, name="profile"),
     path("accounts/register", user_authentication.register_view, name="register_view"),

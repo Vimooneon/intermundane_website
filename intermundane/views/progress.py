@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Response, UserProgress, AuditLog, AccessLevel
+from ..models import Response, UserProgress, AuditLog, AccessLevel
 
 # functionality for ARG progression and index page
 def index(request):
