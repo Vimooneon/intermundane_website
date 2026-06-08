@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-local-testing" # different on server, used only fo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # different on server, used only for local host testing
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
