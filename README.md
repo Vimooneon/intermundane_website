@@ -22,6 +22,8 @@ python -m venv venv
 pip install django django-parler
 ```
 - Compiling translations
+
+requires GNU gettext tools (https://mlocati.github.io/articles/gettext-iconv-windows.html)
 ```
 django-admin compilemessages
 ```
