@@ -1,5 +1,4 @@
 media
-static
 db.sqlite3
 intermundane/__pycache__
 intermundane/migrations

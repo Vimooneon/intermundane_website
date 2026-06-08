@@ -1,0 +1,783 @@
+/*----------- google fonts -----------*/
+@font-face {
+  font-family: 'Arsenal';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/arsenal/v13/wXKrE3kQtZQ4pF3D51jcAA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Anta';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/anta/v1/gyBzhwQ3KsIyVFs7PQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Anton SC';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/antonsc/v1/4UaBrEBBsgltGn71syLhx6g.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/*----------- google fonts end -----------*/
+
+/*----------- general section -----------*/
+body{
+  font-family: 'Arsenal', Verdana, sans-serif;
+  margin: 0;
+  min-width: 600px;
+}
+
+.header-font, h1, h2, h3{
+  font-family: 'Anta', Verdana, sans-serif;
+}
+
+button, ::placeholder{
+  font-family: 'Anton', Verdana, sans-serif;
+}
+
+a{
+  font-family: 'Anton', Verdana, sans-serif;
+  cursor:pointer;
+  text-decoration: none;
+  color: bisque;
+}
+
+a:hover {
+  color: aqua;
+  transition: color 0.3s ease;
+}
+
+.bg-dark{
+    background-color: rgb(62, 59, 82);
+    color: antiquewhite;
+}
+
+.hidden {
+    display:none;
+}
+
+/* gives css warning for background and text color matching, but that is needed for ARG purpose - hidden text*/
+.hidden-text {
+    background-color: rgb(42, 29, 52);
+    color: rgb(42, 29, 52);
+}
+
+.bg-darker{
+    background-color: rgb(42, 29, 52);
+    color: azure;
+}
+
+.btn{
+  border-radius: 25px;
+  background-color: #8255af;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover, .btn:active {
+  background-color: #65397c;
+  color: white;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary{
+  font-size: 1.25rem;
+}
+
+input.error {
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+.error {
+  color: red;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.form-select, .form-control {
+  font-family: 'Anta', Verdana, sans-serif;
+  font-size: 1.25rem;
+  padding: 0px 10px;
+}
+
+.form-label{
+  font-family: 'Anta', Verdana, sans-serif;
+}
+
+.center {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.left {
+  text-align: left;
+  justify-content: left;
+}
+
+.right {
+  text-align: right;
+  justify-content: right;
+}
+
+.no_style {
+    list-style: none;
+}
+
+.title {
+    font-size: 3rem;
+}
+
+/*----------- general section end -----------*/
+
+.top-section {
+  padding: 20px;
+  text-align: center;
+  color:blueviolet;
+  font-size: 2rem;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+
+
+
+/*----------- header section -----------*/
+/*Use position:sticky for the header.*/
+header{
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 15px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.navbar-image {
+  height:100px;
+  width:auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 150px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+}
+
+.nav-links li {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 2rem;
+  position: relative;
+}
+
+#navbar-select{
+  height: 100px;
+  line-height: 100px;
+  font-size: 2rem;
+}
+
+.nav-links a {
+  padding: 8px 12px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.dropdown li:first-child a:hover {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.dropdown li:last-child a:hover {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: rgb(27, 17, 35);
+  border-radius: 6px;
+  list-style: none;
+  padding: 0 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown li {
+  padding: 0;
+}
+
+.dropdown a {
+  padding: 16px 16px;
+  color: aquamarine;
+  white-space: nowrap;
+}
+
+.dropdown a:hover {
+  background-color: darkcyan;
+  color: azure;
+  transition: color 0.3s ease;
+}
+
+.nav-links li:hover > .dropdown {
+  display: block;
+}
+
+@media screen and (max-width: 2000px) {
+    .nav-links {
+      gap: 75px;
+    }
+}
+
+@media screen and (max-width: 1700px) {
+    header{
+      padding: 50px;
+    }
+    .nav-links {
+      gap: 75px;
+    }
+    .navbar-image {
+        height:50px;
+    }
+    #navbar-select{
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.25rem;
+    }
+    .nav-links li {
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header{
+      padding: 50px;
+    }
+    .nav-links {
+      gap: 30px;
+    }
+    .navbar-image {
+        height:50px;
+    }
+    #navbar-select{
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.25rem;
+    }
+    .nav-links li {
+      height: 50px;
+      line-height: 50px;
+      font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    header{
+      padding: 50px;
+    }
+    .nav-links {
+      gap: 15px;
+    }
+    .navbar-image {
+        height:25px;
+    }
+    #navbar-select{
+      height: 25px;
+      line-height: 25px;
+      font-size: 1rem;
+    }
+    .nav-links li {
+      height: 25px;
+      line-height: 25px;
+      font-size: 1rem;
+    }
+}
+
+
+/*----------- header section end -----------*/
+
+
+
+/*----------- about section -----------*/
+.about{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+  font-size: 2rem;
+}
+
+#about-info{
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+
+.about p{
+    text-align: left;
+}
+
+@media screen and (max-width: 900px) {
+  #about-info{
+    width: 90%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #about-info{
+    width: 100%;
+  }
+}
+
+/*----------- about section end -----------*/
+
+
+
+/*----------- lore section -----------*/
+.lore {
+  padding: 40px;
+  text-align: center;
+}
+
+.lore-grid{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 50px;
+  padding: 30px;
+}
+
+.lore-card{
+  background-size: cover;
+  background-position: 0% 20%;
+  color: white;
+  height: 450px;
+  min-width: 545px;
+  display: flex;
+
+  z-index: 1;
+  border-radius: 15px 15px;
+}
+
+.background-overlay{
+  height:inherit;
+  width: 30%;
+  min-width: 545px;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.lore-card:nth-child(odd){
+    justify-content: right;
+}
+
+.lore-card:nth-child(odd) .background-overlay{
+    border-radius: 0px 15px 15px 0px;
+}
+
+#lore-lab{
+    background-image: url(https://f2.toyhou.se/file/f2-toyhou-se/images/100775099_d2Lj2BurhJ4cL6J.jpg);
+}
+
+#lore-desert{
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6c29679d-b42c-48d8-89cf-aaeb0f4ab464/dfuxrdt-397476fd-1307-41dd-ad7d-e538f35f752c.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi82YzI5Njc5ZC1iNDJjLTQ4ZDgtODljZi1hYWViMGY0YWI0NjQvZGZ1eHJkdC0zOTc0NzZmZC0xMzA3LTQxZGQtYWQ3ZC1lNTM4ZjM1Zjc1MmMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.TwoA_pG7Htdm9T2gdaS_LvlpK-PrHqAkmn2e2kJbMTE);
+}
+
+#lore-dark-forest{
+    background-image: url(https://f2.toyhou.se/file/f2-toyhou-se/images/91999665_61MurKwz6zEAjvJ.png?1733004350);
+}
+
+#lore-kingdom{
+    background-image: url(https://f2.toyhou.se/file/f2-toyhou-se/images/90557886_tff0rfrrn4p5yVT.png);
+}
+
+#lore-divine-temple{
+    background-image: url(https://f2.toyhou.se/file/f2-toyhou-se/images/104466446_VT3kLAqFSWjz06K.png);
+}
+
+.lore-card-content{
+  width: 30%;
+  position: relative;
+  text-align: left;
+}
+.lore-card-content h2{
+  margin: 30px;
+  font-size: 3rem;
+}
+.lore-card-content p{
+  margin: 30px;
+  font-size: 1.5rem;
+}
+
+.lore-card-content a{
+  margin: 30px;
+}
+
+@media screen and (max-width: 1300px) {
+  .lore-grid .lore-card .background-overlay{
+    width: 50%;
+  }
+  .lore-card-content{
+    width: 50%;
+  }
+  .lore-card-content h2, .lore-card-content p, .lore-card-content a{
+    margin: 10px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .lore{
+    padding: 5px;
+  }
+  .lore-grid .lore-card .background-overlay{
+    width: 89%;
+    border-radius: 15px 15px 15px 15px;
+  }
+  .lore-card-content{
+    width: 100%;
+  }
+  .lore-card-content h2, .lore-card-content p, .lore-card-content a{
+    margin: 5px;
+  }
+}
+
+/*----------- lore section end -----------*/
+
+
+
+/*----------- characters section -----------*/
+.characters {
+  padding: 40px;
+  text-align: center;
+}
+
+.characters-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 30px;
+}
+
+.characters-card{
+  border-radius: 15px 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+}
+
+.characters-card:hover{
+  translate: 0px -5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.characters-card img{
+  border-radius: 15px 15px 0px 0px;
+  max-width: 100%;
+}
+
+.characters-info{
+  padding: 10px;
+}
+
+.characters-info h3,.characters-info p,.characters-info a {
+  margin: 15px;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 900px) {
+  .characters-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .characters-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.log-form {
+  width: 50%;
+  margin: auto;
+  padding: 75px;
+  font-size: 1.5rem;
+}
+
+.log-form div{
+  padding: 15px;
+  font-size: 1.5rem;
+}
+
+.log-form input {
+    font-size: 1.5rem;
+}
+
+
+
+/*----------- characters section end -----------*/
+
+/* characters v2 section */
+
+.characters-v2 {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+  font-size: 2rem;
+}
+
+.characters-v2-info {
+    text-align: left;
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+
+.characters-v2 a {
+  text-decoration: none;
+  color: bisque;
+  padding: 8px 12px;
+  display: block;
+  font-weight: bold;
+}
+
+.characters-v2 a:hover {
+  color: aqua;
+  transition: color 0.3s ease;
+}
+
+/* characters v2 section end */
+
+/*----------- author section -----------*/
+.author {
+  padding: 40px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#author-img {
+  width: inherit;
+}
+
+#img-column {
+  padding-right: 25px;
+  text-align: right;
+  width: 50%;
+}
+
+.author table{
+  text-align: left;
+}
+/*----------- author section end -----------*/
+
+
+
+.comments {
+  padding: 40px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.code {
+  padding: 40px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.input-code {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.input-code input{
+  border: 5px solid #300a43;
+  border-right: none;
+  width: 300px;
+  padding: 10px 10px;
+}
+
+.input-code button{
+  background-color: #8255af;
+  color: white;
+  padding: 14px 25px;
+  border: 5px solid #300a43;
+  border-left: none;
+  cursor:pointer;
+}
+
+.input-code button:hover, .input-code button:active {
+  background-color: #65397c;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* profile section */
+.profile{
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 50px;
+  font-size: 2rem;
+}
+
+.profile div {
+    padding: 5px;
+}
+
+.profile-info{
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+
+.profile select{
+    font-size: 1.75rem;
+}
+
+@media screen and (max-width: 900px) {
+  .profile-info{
+    width: 80%;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .profile-info{
+    width: 90%;
+    padding: 10px;
+  }
+}
+/* profile section end */
+
+/* admin panel */
+
+.audit-log table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.audit-log h3{
+    margin: 5px;
+}
+
+.audit-log {
+  padding: 40px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.audit-log select, .audit-log input{
+    font-size: 1.75rem;
+}
+
+.table-form table {
+    border: 5px solid;
+    border-color: rgb(42, 29, 52);
+}
+
+.table-form td, .table-form th {
+    border: 5px solid;
+    border-color: rgb(42, 29, 52);
+    width: 400px;
+}
+/* admin panel end */
+
+
+/* world/character page */
+
+.lore-chapter {
+    padding: 10px;
+    padding-bottom:50px;
+}
+
+.world, .character{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 24px;
+}
+
+@media screen and (max-width: 700px) {
+  .world, .character{
+    width:90%;
+  }
+}
+
+.character div {
+    height:auto;
+}
+
+.character-title{
+    text-align: center;
+    font-size: 60px;
+    font-family: impact, chicago;
+}
+
+.character-subtitle{
+    text-align: center;
+    font-size: 18px;
+    font-family: "courier new ", courier;
+}
+
+.character-chapter-title{
+    font-size: 36px;
+    font-weight: 500;
+    font-family: "courier new ", courier;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.character table tr img {
+    height:auto;
+    max-width:500px;
+    margin:15px;
+    float:left;
+}
+
+.character table tr:nth-child(even) img{
+    float:right;
+}
+
+@media screen and (max-width: 900px) {
+  .large-screen{
+      display:none;
+  }
+}
+
+.character-mini-image{
+    position:relative;
+    top:30px;
+    --fa-bounce-start-scale-x:1;
+    --fa-bounce-start-scale-y:1;
+    --fa-bounce-jump-scale-x:1;
+    --fa-bounce-jump-scale-y:1;
+    --fa-bounce-land-scale-x:1;
+    --fa-bounce-land-scale-y:1;
+    --fa-bounce-rebound: 0;
+}
