@@ -1,9 +1,10 @@
 media
 db.sqlite3
 intermundane/__pycache__
-intermundane/migrations
+intermundane/migrations/__pycache__
 intermundane/management/commands
-mysite/settings.py
+# mysite/settings.py
 mysite/__pycache__
 backup.json
 locale/es/LC_MESSAGES/django.po
+venv

@@ -43,7 +43,7 @@ class ContentBlock(models.Model):
     is_deleted = models.BooleanField(default=False)
     deleted_at = models.DateTimeField(blank=True, null=True)
     class Meta:
-        constraints = [models.CheckConstraint(check=(Q(character__isnull=False)|Q(world__isnull=False)),name="requires_character_or_world")]
+        constraints = [models.CheckConstraint(condition=(Q(character__isnull=False)|Q(world__isnull=False)),name="requires_character_or_world")]
     def __str__(self):
         return self.key
 
