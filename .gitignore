@@ -1,5 +1,6 @@
 media
 db.sqlite3
+db_backup.sqlite3
 intermundane/__pycache__
 intermundane/migrations/__pycache__
 intermundane/management/commands
