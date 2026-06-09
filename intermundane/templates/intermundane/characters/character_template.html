@@ -21,7 +21,7 @@
             <tbody>
                 {% for lore_item in lore %}
                 <tr>
-                    <td class="lore-chapter">
+                    <td class="lore-chapter {{ lore_item.css_class }}">
                         {% if lore_item.image_link %}
                             <img src="{{ lore_item.image_link }}" alt="no-image">
                         {% endif %}
@@ -29,6 +29,8 @@
                         <span>{{ lore_item.desc }}</span>
                     </td>
                 </tr>
+                <tr><td class="chapter-gap">&nbsp;</td></tr>
+                <tr><td class="chapter-gap">&nbsp;</td></tr>
                 {% endfor %}
             </tbody>
         </table>

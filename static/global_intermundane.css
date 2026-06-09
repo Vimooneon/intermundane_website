@@ -711,7 +711,11 @@ header{
 
 .lore-chapter {
     padding: 10px;
-    padding-bottom:50px;
+    padding-bottom: 30px;
+}
+
+.chapter-gap {
+    padding-bottom: 10px;
 }
 
 .world, .character{
@@ -780,4 +784,15 @@ header{
     --fa-bounce-land-scale-x:1;
     --fa-bounce-land-scale-y:1;
     --fa-bounce-rebound: 0;
+}
+
+
+.lab {
+    background-color: #111222;
+    color: #91d772;
+}
+
+.azure {
+    background-color: #12283c;
+    color: #e2df71;
 }

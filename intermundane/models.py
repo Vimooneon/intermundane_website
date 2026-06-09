@@ -123,6 +123,11 @@ class CharacterContentBlock(TranslatableModel):
         null=True,
         blank=True
     )
+    css_class = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True
+    )
     sequence = models.IntegerField(default=0)
     access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)
     translations = TranslatedFields(
@@ -167,6 +172,11 @@ class WorldContentBlock(TranslatableModel):
         max_length=50,
         choices=UNLOCK_TYPES,
         default="gte"
+    )
+    css_class = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True
     )
     sequence = models.IntegerField(default=0)
     access_level = models.ForeignKey(AccessLevel, on_delete=models.CASCADE, default=1)

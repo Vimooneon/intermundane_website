@@ -34,10 +34,11 @@
     </section>
     <section class="world">
         {% for lore_item in lore %}
-        <div class="lore-chapter">
-            <h2 {% if lore_item.title == 'there-is-a-warrior' %}class="hidden-text"{% endif %}>{{lore_item.title}}</h2>
-            <p {% if lore_item.title == 'there-is-a-warrior' %}class="hidden-text"{% endif %}>{{lore_item.desc}}</p>
+        <div class="lore-chapter {{ lore_item.css_class }}" >
+            <h2>{{lore_item.title}}</h2>
+            <p>{{lore_item.desc}}</p>
         </div>
+        <br>
         {% endfor %}
     </section>
 </body>
