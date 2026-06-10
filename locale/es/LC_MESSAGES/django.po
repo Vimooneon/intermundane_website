@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-10 16:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+#: intermundane/templates/404.html:16
+msgid "The page you were looking for couldn't be accessed"
+msgstr "No se ha podido acceder a la página que buscabas"
+
+#: intermundane/templates/404.html:18 intermundane/templates/404.html:20
+msgid "error"
+msgstr "error"
+
+#: intermundane/templates/404.html:18
+msgid "you dont have necessary permission level"
+msgstr "No tienes el nivel de permisos necesario"
+
+#: intermundane/templates/404.html:20
+#, fuzzy
+#| msgid "Such code does not exist"
+msgid "such page does not exist"
+msgstr "Dicho código no existe"
+
+#: intermundane/templates/intermundane/admin_panel.html:17
+#: intermundane/templates/intermundane/admin_panel.html:40
+#: intermundane/templates/intermundane/profile.html:19
+msgid "Admin panel"
+msgstr "Panel de administración"
+
+#: intermundane/templates/intermundane/admin_panel.html:18
+msgid "Logged in as"
+msgstr "Iniciado sesión como"
+
+#: intermundane/templates/intermundane/admin_panel.html:20
+msgid "Currently viewing"
+msgstr "Estás viendo"
+
+#: intermundane/templates/intermundane/admin_panel.html:23
+msgid "Latest logs"
+msgstr "Últimos registros"
+
+#: intermundane/templates/intermundane/admin_panel.html:26
+msgid "Manage Users"
+msgstr "Gestionar usuarios"
+
+#: intermundane/templates/intermundane/admin_panel.html:36
+#: intermundane/templates/intermundane/admin_panel.html:71
+#: intermundane/templates/registration/login.html:21
+#: intermundane/templates/registration/register.html:39
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: intermundane/templates/intermundane/admin_panel.html:37
+msgid "Source"
+msgstr "Fuente"
+
+#: intermundane/templates/intermundane/admin_panel.html:38
+msgid "All"
+msgstr "Todo"
+
+#: intermundane/templates/intermundane/admin_panel.html:39
+msgid "ARG"
+msgstr "ARG"
+
+#: intermundane/templates/intermundane/admin_panel.html:42
+msgid "Action"
+msgstr "Acción"
+
+#: intermundane/templates/intermundane/admin_panel.html:43
+msgid "Timestamp"
+msgstr "Fecha y hora"
+
+#: intermundane/templates/intermundane/admin_panel.html:72
+#: intermundane/templates/intermundane/profile.html:16
+msgid "Level"
+msgstr "Nivel"
+
+#: intermundane/templates/intermundane/admin_panel.html:73
+msgid "Keys"
+msgstr "Claves"
+
+#: intermundane/templates/intermundane/admin_panel.html:86
+msgid "Ban"
+msgstr "Prohibición"
+
+#: intermundane/templates/intermundane/admin_panel.html:88
+msgid "Unban"
+msgstr "Desbloquear"
+
+#: intermundane/templates/intermundane/admin_panel.html:112
+#: intermundane/templates/intermundane/admin_panel.html:152
+msgid "This user is banned"
+msgstr "Este usuario ha sido expulsado"
+
+#: intermundane/templates/intermundane/characters/characters.html:16
+#: intermundane/templates/intermundane/navbar.html:7
+#: intermundane/templates/intermundane/worlds/world_template.html:22
+msgid "Characters"
+msgstr "Personajes"
+
+#: intermundane/templates/intermundane/index.html:16
+msgid "Info"
+msgstr "Información"
+
+#: intermundane/templates/intermundane/index.html:18
+msgid ""
+"This website is an arg - an interactive network narrative used to deliver a "
+"story that may be altered by players actions.<br>Throughout the website it "
+"is possible to find secret passwords that can be entered in the Box below."
+msgstr ""
+"Este sitio web es un «arg», una narrativa interactiva en la red que se "
+"utiliza para contar una historia que puede verse alterada por las acciones "
+"de los jugadores. <br>A lo largo del sitio webes posible encontrar "
+"contraseñas secretas que se pueden introducir en el cuadro que aparece a "
+"continuación."
+
+#: intermundane/templates/intermundane/index.html:27
+msgid "Found a code?"
+msgstr "¿Encontraste un código?"
+
+#: intermundane/templates/intermundane/index.html:37
+msgid "Such code does not exist"
+msgstr "Dicho código no existe"
+
+#: intermundane/templates/intermundane/index.html:39
+msgid "The following code requires higher level of clearance"
+msgstr "El siguiente código requiere un nivel de autorización superior"
+
+#: intermundane/templates/intermundane/index.html:48
+msgid "You need to login to progress this arg!"
+msgstr "¡Debes iniciar sesión para continuar con este argumento!"
+
+#: intermundane/templates/intermundane/navbar.html:6
+msgid "Worlds"
+msgstr "Mundos"
+
+#: intermundane/templates/intermundane/navbar.html:8
+msgid "Profile"
+msgstr "Perfil"
+
+#: intermundane/templates/intermundane/profile.html:15
+msgid "Name"
+msgstr "Nombre"
+
+#: intermundane/templates/intermundane/profile.html:17
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: intermundane/templates/intermundane/worlds/world_template.html:30
+msgid "Seems your access level doesnt grant such information"
+msgstr "Parece que tu nivel de acceso no te permite consultar esa información"
+
+#: intermundane/templates/intermundane/worlds/worlds.html:15
+msgid "Lore significant locations"
+msgstr "Lugares importantes de la historia"
+
+#: intermundane/templates/intermundane/worlds/worlds.html:23
+msgid "Read more"
+msgstr "Más información"
+
+#: intermundane/templates/registration/login.html:18
+#: intermundane/templates/registration/login.html:32
+msgid "Login"
+msgstr "Iniciar sesion"
+
+#: intermundane/templates/registration/login.html:24
+#: intermundane/templates/registration/register.html:35
+msgid "Password"
+msgstr "Contraseña"
+
+#: intermundane/templates/registration/login.html:27
+msgid "Your username and password didn't match. Please try again."
+msgstr "Tu nombre de usuario y contraseña no coinciden. Inténtalo de nuevo."
+
+#: intermundane/templates/registration/login.html:30
+msgid "Don't have account?"
+msgstr "¿No tienes cuenta?"
+
+#: intermundane/templates/registration/login.html:30
+msgid "Register instead"
+msgstr "Registrate"
+
+#: intermundane/templates/registration/register.html:18
+#: intermundane/templates/registration/register.html:52
+msgid "Register"
+msgstr "Registrate"
+
+#: intermundane/templates/registration/register.html:27
+#: intermundane/templates/registration/register.html:37
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: intermundane/templates/registration/register.html:50
+msgid "Already have account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: intermundane/templates/registration/register.html:50
+msgid "Login instead"
+msgstr "Iniciar sesion"
+
+#~ msgid "User logs"
+#~ msgstr "Registros de usuarios"
+
+#~ msgid "Actions"
+#~ msgstr "Acciones"
+
+#~ msgid "See actions"
+#~ msgstr "Ver acciones"
+
+#~ msgid "General description"
+#~ msgstr "Descripción general"

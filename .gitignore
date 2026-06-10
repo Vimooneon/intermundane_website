@@ -3,10 +3,9 @@ db.sqlite3
 db_backup.sqlite3
 intermundane/__pycache__
 intermundane/migrations/__pycache__
-intermundane/management/commands
 # git update-index --skip-worktree mysite/settings.py (server file is untracked)
 mysite/__pycache__
 backup.json
-locale/es/LC_MESSAGES/django.po
+locale/es/LC_MESSAGES/django.mo
 venv
 intermundane/views/__pycache__
