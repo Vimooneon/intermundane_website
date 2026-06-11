@@ -71,6 +71,9 @@ def add_key(request):
         if not (actual_user == request.user or request.user.is_superuser):
             return redirect('admin_panel')
         actual_key = ContentBlock.objects.get(key=content_key)
+        progress = UserProgress.objects.filter(user=actual_user, content_key=actual_key)
+        if progress:
+            return redirect('admin_panel')
         obj = UserProgress(
             user=actual_user,
             content_key=actual_key
